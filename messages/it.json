@@ -83,10 +83,25 @@
   "reviews": {
     "label": "Recensioni",
     "heading": "Racconta la tua esperienza",
-    "text": "Se hai apprezzato il trattamento, una breve recensione su Google aiuta altre donne a scegliere Marta Beauty Zurich con fiducia.",
-    "cta": "Lascia una recensione Google",
-    "fallbackCta": "Apri il profilo Google",
-    "setupHint": "Aggiungi NEXT_PUBLIC_GOOGLE_REVIEW_URL per usare il link diretto alle recensioni."
+    "text": "Lascia un breve pensiero dopo il trattamento e leggi le esperienze condivise dalle altre clienti.",
+    "carouselLabel": "Voci delle clienti",
+    "summary": "{count, plural, one {# recensione} other {# recensioni}} · media {rating}/5",
+    "empty": "Non ci sono ancora recensioni. Racconta per prima la tua esperienza.",
+    "previous": "Recensione precedente",
+    "next": "Recensione successiva",
+    "ratingLabel": "{rating} su 5",
+    "formLabel": "La tua recensione",
+    "formHeading": "Lascia una recensione",
+    "nameLabel": "Nome",
+    "rating": "Valutazione",
+    "messageLabel": "Il tuo messaggio",
+    "submit": "Pubblica recensione",
+    "submitting": "Pubblicazione...",
+    "success": "Grazie. La tua recensione è ora visibile sul sito.",
+    "errors": {
+      "load": "Non è stato possibile caricare le recensioni.",
+      "submit": "Inserisci nome, valutazione e un messaggio di almeno 10 caratteri."
+    }
   },
   "programs": {
     "label": "Programmi",

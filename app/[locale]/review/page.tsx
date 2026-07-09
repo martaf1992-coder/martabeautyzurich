@@ -1,12 +1,25 @@
-import { GOOGLE_REVIEW_URL } from '@/lib/reviews'
 import type { Metadata } from 'next'
-import { redirect } from 'next/navigation'
+import ReviewCard from '@/components/ui/ReviewCard'
+import { getTranslations } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Review Marta Beauty Zurich',
-  robots: 'noindex',
+interface Props {
+  params: Promise<{ locale: string }>
 }
 
-export default function ReviewRedirectPage() {
-  redirect(GOOGLE_REVIEW_URL)
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'reviews' })
+
+  return {
+    title: `${t('heading')} - Marta Beauty Zurich`,
+    robots: 'noindex',
+  }
+}
+
+export default function ReviewPage() {
+  return (
+    <main className="pt-24 bg-white min-h-screen">
+      <ReviewCard />
+    </main>
+  )
 }

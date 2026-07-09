@@ -6,7 +6,7 @@ Next.js 14 website for **Marta Beauty Zurich**, featuring:
 - Calendly booking embed (placeholder — see `app/[locale]/booking/page.tsx`)
 - Stripe checkout for online programs (placeholder — see `app/api/checkout/route.ts`)
 - GDPR-compliant cookie banner
-- Google review CTA system with a stable `/review` redirect for QR cards
+- Local review form and carousel with a stable `/review` page for QR cards
 
 ## Getting Started
 
@@ -50,19 +50,24 @@ public/images/         # Logo, slogan, treatment images (add your own)
 | `components/layout/WhatsAppButton.tsx` | `WA_NUMBER` — your WhatsApp number |
 | `components/layout/Footer.tsx` | Email, phone, Instagram link |
 | `app/[locale]/contact/page.tsx` | `CONTACT_EMAIL`, `CONTACT_PHONE`, `INSTAGRAM_URL` |
-| `app/[locale]/booking/page.tsx` | Replace Calendly placeholder with embed |
+| `.env.local` | `NEXT_PUBLIC_CALENDLY_30MIN_URL`, `NEXT_PUBLIC_CALENDLY_45MIN_URL`, `NEXT_PUBLIC_CALENDLY_60MIN_URL`, `NEXT_PUBLIC_CALENDLY_90MIN_URL` |
 | `app/api/checkout/route.ts` | Stripe `PRICE_IDS` — create products in Stripe dashboard |
 | `.env.local` | `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `NEXT_PUBLIC_SITE_URL` |
-| `.env.local` | `NEXT_PUBLIC_GOOGLE_REVIEW_URL` from Google Business Profile |
 | `app/[locale]/privacy/page.tsx` | Real Privacy Policy (DSG/GDPR compliant) |
 | `app/[locale]/cookie-policy/page.tsx` | Real Cookie Policy |
 | `public/images/` | Add treatment, portrait, hero photos |
 
-## Google Reviews
+## Local Reviews
 
-Set `NEXT_PUBLIC_GOOGLE_REVIEW_URL` in `.env.local` to the direct review link from Google Business Profile.
+Reviews are stored in `data/reviews.json` through `/api/reviews` and displayed in the carousel on the home page and review page.
 
-Use the site URL `/it/review` or `/en/review` for printed QR cards. Those pages redirect to the configured Google review URL, so the printed QR code can stay the same if the Google link changes later.
+Use `/it/review` or `/en/review` for printed QR cards. On a serverless host such as Vercel, filesystem writes are not persistent, so replace the JSON file storage with a database before collecting production reviews.
+
+## Calendly Booking
+
+Create separate Calendly event types for 30, 45, 60, and 90 minute treatments, then set the matching `NEXT_PUBLIC_CALENDLY_*_URL` values. The booking form chooses the event type from the selected treatment duration and passes `Europe/Zurich` as the calendar timezone.
+
+For in-person Zurich appointments, lock the timezone to Zurich inside each Calendly event type. Calendly may still display timezone information inside its iframe; that display is controlled by Calendly.
 
 ## Deployment
 

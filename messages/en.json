@@ -83,10 +83,25 @@
   "reviews": {
     "label": "Reviews",
     "heading": "Share your experience",
-    "text": "If you enjoyed your treatment, a short Google review helps other women find Marta Beauty Zurich with confidence.",
-    "cta": "Leave a Google review",
-    "fallbackCta": "Open Google profile",
-    "setupHint": "Add NEXT_PUBLIC_GOOGLE_REVIEW_URL to use the direct review link."
+    "text": "Leave a short note after your treatment and read what other clients have shared.",
+    "carouselLabel": "Client notes",
+    "summary": "{count, plural, one {# review} other {# reviews}} · {rating}/5 average",
+    "empty": "No reviews yet. Be the first to share your experience.",
+    "previous": "Previous review",
+    "next": "Next review",
+    "ratingLabel": "{rating} out of 5",
+    "formLabel": "Your review",
+    "formHeading": "Leave a review",
+    "nameLabel": "Name",
+    "rating": "Rating",
+    "messageLabel": "Your message",
+    "submit": "Publish review",
+    "submitting": "Publishing...",
+    "success": "Thank you. Your review is now visible on the website.",
+    "errors": {
+      "load": "Reviews could not be loaded.",
+      "submit": "Please add your name, a rating, and a message of at least 10 characters."
+    }
   },
   "programs": {
     "label": "Programs",

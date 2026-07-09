@@ -3,7 +3,13 @@
 import { useTranslations } from 'next-intl'
 import { useMemo, useState } from 'react'
 
-const CALENDLY_URL = 'https://calendly.com/marta-f1992/30min'
+const CALENDLY_TIMEZONE = 'Europe/Zurich'
+const CALENDLY_URLS_BY_DURATION: Record<number, string> = {
+  30: process.env.NEXT_PUBLIC_CALENDLY_30MIN_URL ?? 'https://calendly.com/marta-f1992/30min',
+  45: process.env.NEXT_PUBLIC_CALENDLY_45MIN_URL ?? 'https://calendly.com/marta-f1992/45min',
+  60: process.env.NEXT_PUBLIC_CALENDLY_60MIN_URL ?? 'https://calendly.com/marta-f1992/60min',
+  90: process.env.NEXT_PUBLIC_CALENDLY_90MIN_URL ?? 'https://calendly.com/marta-f1992/90min',
+}
 const WA_NUMBER = '41766717753'
 const treatmentKeys = [
   'ayurveda',
@@ -28,6 +34,23 @@ interface Props {
   locale: string
 }
 
+function parseDurationMinutes(duration: string) {
+  const minutes = Number.parseInt(duration, 10)
+  return Number.isFinite(minutes) ? minutes : 30
+}
+
+function buildCalendlyUrl(baseUrl: string, treatmentLabel?: string) {
+  const url = new URL(baseUrl)
+  url.searchParams.set('hide_gdpr_banner', '1')
+  url.searchParams.set('timezone', CALENDLY_TIMEZONE)
+
+  if (treatmentLabel) {
+    url.searchParams.set('a1', treatmentLabel)
+  }
+
+  return url.toString()
+}
+
 export default function BookingCalendar({ initialTreatment, locale }: Props) {
   const tBooking = useTranslations('booking')
   const tTreatments = useTranslations('treatments')
@@ -42,9 +65,16 @@ export default function BookingCalendar({ initialTreatment, locale }: Props) {
     return locale === 'it' ? treatment.it : treatment.en
   }, [locale, selectedTreatment, tTreatments])
 
-  const calendlyUrl = selectedTreatmentLabel
-    ? `${CALENDLY_URL}?hide_gdpr_banner=1&a1=${encodeURIComponent(selectedTreatmentLabel)}`
-    : `${CALENDLY_URL}?hide_gdpr_banner=1`
+  const selectedTreatmentDuration = useMemo(() => {
+    if (!selectedTreatment) return 30
+    const treatment = tTreatments.raw(`items.${selectedTreatment}`) as { duration: string }
+    return parseDurationMinutes(treatment.duration)
+  }, [selectedTreatment, tTreatments])
+
+  const calendlyUrl = buildCalendlyUrl(
+    CALENDLY_URLS_BY_DURATION[selectedTreatmentDuration] ?? CALENDLY_URLS_BY_DURATION[30],
+    selectedTreatmentLabel
+  )
 
   const waMessage = encodeURIComponent(
     locale === 'it'
@@ -79,7 +109,7 @@ export default function BookingCalendar({ initialTreatment, locale }: Props) {
         </select>
         {selectedTreatmentLabel && (
           <p className="mt-3 font-sans text-xs text-secondary">
-            {tBooking('selectedTreatment')}: <span className="text-ink">{selectedTreatmentLabel}</span>
+            {tBooking('selectedTreatment')}: <span className="text-ink">{selectedTreatmentLabel} - {selectedTreatmentDuration} min</span>
           </p>
         )}
       </div>

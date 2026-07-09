@@ -52,11 +52,11 @@ export default function Navbar({ locale }: Props) {
             {/* Logo */}
             <Link href={`/${locale}`} className="flex-shrink-0" aria-label="Marta Beauty Zurich — home">
               <Image
-                src="/images/logo.jpeg"
+                src="/images/logo2.jpg"
                 alt="Marta Beauty Zurich"
-                width={84}
-                height={108}
-                className="h-14 w-auto lg:h-16"
+                width={120}
+                height={120}
+                className="h-16 w-auto lg:h-20"
                 priority
               />
             </Link>

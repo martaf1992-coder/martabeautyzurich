@@ -1,0 +1,23 @@
+[
+  {
+    "id": "seed-1",
+    "name": "Giulia",
+    "rating": 5,
+    "message": "A calm, thoughtful treatment with real attention to detail. I left feeling lighter and completely cared for.",
+    "createdAt": "2026-03-12T10:00:00.000Z"
+  },
+  {
+    "id": "seed-2",
+    "name": "Elena",
+    "rating": 5,
+    "message": "Marta understood exactly what my skin needed and explained the routine in a simple, personal way.",
+    "createdAt": "2026-04-18T10:00:00.000Z"
+  },
+  {
+    "id": "seed-3",
+    "name": "Sofia",
+    "rating": 5,
+    "message": "Professional, warm, and precise. The massage was deeply relaxing and the whole experience felt very premium.",
+    "createdAt": "2026-05-24T10:00:00.000Z"
+  }
+]

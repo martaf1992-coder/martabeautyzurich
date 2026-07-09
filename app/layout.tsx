@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   title: { default: 'Marta Beauty Zurich', template: '%s | Marta Beauty Zurich' },
   description: 'Beauty and wellness in Zurich and online.',
   icons: {
-    icon: '/images/logo.jpeg',
-    shortcut: '/images/logo.jpeg',
-    apple: '/images/logo.jpeg',
+    icon: '/images/logo2.jpg',
+    shortcut: '/images/logo2.jpg',
+    apple: '/images/logo2.jpg',
   },
 }
 

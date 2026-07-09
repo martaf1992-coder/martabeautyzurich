@@ -64,11 +64,11 @@ export default async function HomePage({ params }: Props) {
         {/* Logo mark — centred above heading */}
         <div className="mb-10">
           <Image
-            src="/images/logo.jpeg"
+            src="/images/logo2.jpg"
             alt="Marta Beauty Zurich"
-            width={96}
-            height={120}
-            className="h-24 w-auto mx-auto"
+            width={180}
+            height={180}
+            className="h-36 w-auto mx-auto sm:h-44"
             priority
           />
         </div>
@@ -206,13 +206,12 @@ export default async function HomePage({ params }: Props) {
       <section className="bg-parchment py-20 lg:py-28 px-6" aria-labelledby="about-teaser-heading">
         <div className="max-w-3xl mx-auto text-center">
           <p className="section-label mb-6">{tAbout('label')}</p>
-          {/* REPLACE: portrait photo of Marta */}
-          <div className="w-24 h-24 rounded-full bg-border mx-auto mb-8 overflow-hidden">
+          <div className="w-32 h-32 rounded-full bg-border mx-auto mb-8 overflow-hidden border border-border">
             <Image
-              src="/images/placeholder-portrait.jpg"
+              src="/images/FotoProfilo.png"
               alt="Marta Fantozzi"
-              width={96}
-              height={96}
+              width={128}
+              height={128}
               className="w-full h-full object-cover"
             />
           </div>
