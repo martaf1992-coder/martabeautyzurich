@@ -1,0 +1,399 @@
+{
+  "meta": {
+    "siteName": "Marta Beauty Zurich",
+    "homeTitle": "Marta Beauty Zurich — Bellezza e benessere a Zurigo",
+    "homeDescription": "Estetista specializzata in medicina estetica italiana. Percorsi online personalizzati e trattamenti beauty a Zurigo.",
+    "programsTitle": "Programmi online — Marta Beauty Zurich",
+    "programsDescription": "Percorsi di benessere personalizzati online per pelle, energia e vitalità.",
+    "treatmentsTitle": "Trattamenti beauty a Zurigo — Marta Beauty Zurich",
+    "treatmentsDescription": "Massaggi, trattamenti viso e corpo a Zurigo. Prenota la tua sessione.",
+    "postpartumTitle": "Percorso post-parto — Marta Beauty Zurich",
+    "postpartumDescription": "Un percorso olistico pensato per le neomamme a Zurigo e online.",
+    "aboutTitle": "Chi sono — Marta Beauty Zurich",
+    "aboutDescription": "Marta Fantozzi, estetista con oltre 10 anni di esperienza in estetica avanzata e benessere.",
+    "bookingTitle": "Prenota — Marta Beauty Zurich",
+    "bookingDescription": "Prenota un trattamento o una consulenza online con Marta.",
+    "contactTitle": "Contatti — Marta Beauty Zurich",
+    "contactDescription": "Contatta Marta per informazioni sui programmi e i trattamenti."
+  },
+  "nav": {
+    "programs": "Programmi",
+    "treatments": "Trattamenti",
+    "postpartum": "Post-parto",
+    "about": "Chi sono",
+    "contact": "Contatti",
+    "book": "Prenota ora",
+    "openMenu": "Apri menu",
+    "closeMenu": "Chiudi menu"
+  },
+  "lang": {
+    "toggle": "EN",
+    "current": "IT"
+  },
+  "hero": {
+    "tagline": "Be your first priority.",
+    "sub": "Benessere e bellezza di lusso a Zurigo, e online nel mondo.",
+    "ctaPrograms": "Scopri i programmi",
+    "ctaTreatments": "Prenota un trattamento"
+  },
+  "trust": {
+    "home": "Zurigo e dintorni",
+    "online": "Completamente online · Ovunque nel mondo",
+    "experience": "10+ anni di esperienza",
+    "personalized": "Personalizzato per te"
+  },
+  "pillars": {
+    "label": "I nostri servizi",
+    "programs": {
+      "title": "Programmi Online",
+      "desc": "Percorsi di benessere personalizzati per pelle, vitalità e benessere — ovunque tu sia.",
+      "cta": "Scopri i programmi",
+      "comingSoon": "coming soon"
+    },
+    "treatments": {
+      "title": "Trattamenti Beauty",
+      "desc": "Massaggi, trattamenti viso e corpo esclusivi a Zurigo.",
+      "cta": "Scopri i trattamenti"
+    }
+  },
+  "targets": {
+    "label": "Per chi è pensato",
+    "mama": {
+      "title": "Mamma post-parto",
+      "desc": "Ritrova te stessa nel tuo nuovo corpo e nella tua nuova quotidianità."
+    },
+    "career": {
+      "title": "Donna in carriera",
+      "desc": "Routine efficaci e sostenibili, anche quando il tempo non basta mai."
+    },
+    "change": {
+      "title": "In cerca di sé",
+      "desc": "Un momento di trasformazione, dentro e fuori."
+    }
+  },
+  "featured": {
+    "label": "Trattamenti in evidenza",
+    "cta": "Prenota questo trattamento"
+  },
+  "aboutTeaser": {
+    "label": "Chi sono",
+    "text": "Mi chiamo Marta Fantozzi, estetista e specialista in medicina estetica italiana con oltre 10 anni di esperienza. Unisco estetica, trattamenti mirati e benessere psico-fisico in percorsi personalizzati — a Zurigo e online.",
+    "cta": "Conosci Marta →"
+  },
+  "reviews": {
+    "label": "Recensioni",
+    "heading": "Racconta la tua esperienza",
+    "text": "Se hai apprezzato il trattamento, una breve recensione su Google aiuta altre donne a scegliere Marta Beauty Zurich con fiducia.",
+    "cta": "Lascia una recensione Google",
+    "fallbackCta": "Apri il profilo Google",
+    "setupHint": "Aggiungi NEXT_PUBLIC_GOOGLE_REVIEW_URL per usare il link diretto alle recensioni."
+  },
+  "programs": {
+    "label": "Programmi",
+    "heading": "Percorsi di benessere su misura",
+    "sub": "Tutti i percorsi partono dall'Essential. Scegli poi il tuo track.",
+    "comingSoon": "coming soon",
+    "essential": {
+      "name": "Essential",
+      "tagline": "La base per tutti i percorsi",
+      "includes": [
+        "Consulenza skin personalizzata (principi attivi inclusi)",
+        "Programma routine online",
+        "Kit strumenti base per skin care",
+        "Supporto giornaliero per qualsiasi dubbio",
+        "Playlist relax curata",
+        "Aromaterapia consigliata per casa"
+      ]
+    },
+    "trackStandard": "Percorso Standard",
+    "trackMum": "Percorso Mamme",
+    "integrated": {
+      "name": "Benessere Integrato",
+      "tagline": "Tutto l'Essential, più:",
+      "includes": [
+        "Nutrizionista (longevità, sonno, benessere)",
+        "Kit base autotrattamento",
+        "Follow-up settimanale live"
+      ]
+    },
+    "luxury": {
+      "name": "Luxury",
+      "tagline": "Tutto il Benessere Integrato, più:",
+      "includes": [
+        "Esperta benessere capelli",
+        "Kit completo autotrattamento spedito a casa",
+        "Video tutorial personalizzati"
+      ]
+    },
+    "integratedMum": {
+      "name": "Benessere Integrato Mamme",
+      "tagline": "Tutto l'Essential, più:",
+      "includes": [
+        "Nutrizionista (longevità, sonno, benessere)",
+        "Doula — supporto psicologico post-parto",
+        "Kit base autotrattamento",
+        "Follow-up settimanale live"
+      ]
+    },
+    "luxuryMum": {
+      "name": "Luxury Mamme",
+      "tagline": "Tutto il Benessere Integrato Mamme, più:",
+      "includes": [
+        "Esperta benessere capelli (specializzata in perdita post-parto)",
+        "Kit completo autotrattamento spedito a casa",
+        "Video tutorial personalizzati"
+      ]
+    },
+    "priceLabel": "Prezzo",
+    "priceTbd": "Da definire",
+    "pricePlaceholder": "CHF —",
+    "ctaGetStarted": "Inizia ora",
+    "teamLabel": "Il team",
+    "teamMarta": { "name": "Marta Fantozzi", "role": "Skin Expert", "desc": "Pelle, principi attivi, routine. Il cuore del progetto." },
+    "teamNutritionist": { "name": "Nutrizionista", "role": "Nutrizione & Longevità", "desc": "Benessere, longevità, sonno. Presente da Benessere Integrato in poi." },
+    "teamHair": { "name": "Esperta Capelli", "role": "Benessere Capelli", "desc": "Solo livello Luxury. Perdita post-parto nel percorso mamme." },
+    "teamDoula": { "name": "Doula", "role": "Supporto Post-parto", "desc": "Solo percorso mamme da Benessere Integrato in poi." }
+  },
+  "treatments": {
+    "label": "Trattamenti",
+    "heading": "Trattamenti beauty a Zurigo",
+    "sub": "Sessioni individuali prenotabili separatamente a Zurigo.",
+    "massages": "Massaggi",
+    "body": "Trattamenti Corpo",
+    "facial": "Trattamenti Viso",
+    "pedicure": "Pedicure",
+    "duration": "Durata",
+    "price": "CHF",
+    "cta": "Prenota questo trattamento",
+    "items": {
+      "ayurveda": {
+        "en": "Ayurveda Massage",
+        "it": "Massaggio Ayurveda",
+        "desc": "Un viaggio sensoriale millenario per riequilibrare corpo e mente attraverso tecniche ayurvediche tradizionali.",
+        "duration": "90 min",
+        "price": "195"
+      },
+      "candle": {
+        "en": "Warm Candle Massage",
+        "it": "Massaggio Candele",
+        "desc": "Cera tiepida di candela aromatica sciolta sul corpo per un'azione nutriente, rilassante e sensoriale profonda.",
+        "duration": "60 min",
+        "price": "130"
+      },
+      "deepRelease": {
+        "en": "Deep Release Massage",
+        "it": "Massaggio Decontratturante",
+        "desc": "Tecniche mirate sui nodi muscolari per sciogliere tensioni profonde e restituire leggerezza al corpo.",
+        "duration": "60 min",
+        "price": "130"
+      },
+      "backNeck": {
+        "en": "Back & Neck Relief",
+        "it": "Back & Neck",
+        "desc": "Sessione focalizzata su schiena e cervicale — ideale per chi lavora molte ore davanti allo schermo.",
+        "duration": "30 min",
+        "price": "80"
+      },
+      "drain": {
+        "en": "Deep Drain Massage",
+        "it": "Massaggio Drenante",
+        "desc": "Manovre drenanti specifiche per stimolare la circolazione linfatica e ridurre gonfiori e ritenzione.",
+        "duration": "60 min",
+        "price": "130"
+      },
+      "sculpt": {
+        "en": "Sculpt Massage",
+        "it": "Massaggio Anti-Cellulite",
+        "desc": "Trattamento anticellulite intensivo per migliorare la texture della pelle e ridefinire i contorni corporei.",
+        "duration": "60 min",
+        "price": "130"
+      },
+      "deepInfinity": {
+        "en": "The Sense Reset",
+        "it": "The Sense Reset",
+        "desc": "Un massaggio sensoriale per riequilibrare corpo e mente.",
+        "duration": "90 min",
+        "price": "220"
+      },
+      "premamum": {
+        "en": "Premamum Massage",
+        "it": "Massaggio Pre-mamma",
+        "desc": "Massaggio dolce e sicuro per le future mamme, pensato per alleviare i discomfort della gravidanza.",
+        "duration": "60 min",
+        "price": "130"
+      },
+      "reflex": {
+        "en": "Sole Reflex Therapy",
+        "it": "Riflessologia Plantare",
+        "desc": "La riflessologia plantare stimola i punti riflessi del piede per riequilibrare organi e sistemi in modo naturale.",
+        "duration": "60 min",
+        "price": "150"
+      },
+      "dryBrush": {
+        "en": "Dry Brush Body Revival",
+        "it": "Dry Brushing",
+        "desc": "Esfoliazione a secco con spazzola naturale per stimolare il microcircolo, levigare la pelle e favorire il drenaggio.",
+        "duration": "60 min",
+        "price": "120"
+      },
+      "wrap": {
+        "en": "Detox Sculpt Wrap",
+        "it": "Bendaggio",
+        "desc": "Bendaggio drenante e modellante con principi attivi detox per levigare, rassodare e rimodellare la silhouette.",
+        "duration": "60 min",
+        "price": "130"
+      },
+      "cleanse": {
+        "en": "Pure Glow Cleanse",
+        "it": "Pulizia Viso",
+        "desc": "Pulizia profonda del viso per liberare i pori, uniformare il tono e restituire luminosità alla pelle.",
+        "duration": "60 min",
+        "price": "130"
+      },
+      "silk": {
+        "en": "Silk Touch Facial",
+        "it": "Trattamento Seta",
+        "desc": "Trattamento viso intensivo con texture setosa che nutre, ammorbidisce e illumina la pelle in profondità.",
+        "duration": "60 min",
+        "price": "160"
+      },
+      "collagen": {
+        "en": "Collagen Boost Ritual",
+        "it": "Trattamento Anti-age (Collagen Boost)",
+        "desc": "Rituale anti-age con tecnologie di stimolazione del collagene per pelle più compatta, liscia e giovane.",
+        "duration": "60 min",
+        "price": "160"
+      },
+      "curativePedicure": {
+        "en": "Curative Pedicure",
+        "it": "Pedicure Curativa",
+        "desc": "Trattamento mirato per la cura del piede, pensato per comfort e ordine.",
+        "duration": "45 min",
+        "price": "45",
+        "originalPrice": "55",
+        "discountLabel": "-10 CHF"
+      }
+    }
+  },
+  "postpartum": {
+    "label": "Percorso Post-parto",
+    "heading": "Ritrovati.",
+    "heroIT": "Lo sto vivendo adesso con il mio neonato tra le braccia, in una città che non è casa mia, lontana dalla mia famiglia. Ho cercato qualcuno che mi aiutasse davvero... Non a sembrare come prima ma a ritrovarmi. A sentirmi bene nella mia pelle — quella nuova, quella che racconta chi sono diventata. Non l'ho trovato. Allora ho deciso di crearlo io. 🌿",
+    "heroEN": "I know that moment. I'm living it right now with my newborn in my arms, in a city that isn't home, far from my family. I looked for someone to truly help me — not to look like before, but to find myself again. To feel good in my own skin — this new skin, the one that tells the story of who I've become. I couldn't find it. So I decided to create it myself. 🌿",
+    "forWho": "Per chi è questo percorso",
+    "forWhoItems": [
+      "Mamme expat senza rete familiare vicina",
+      "Donne che vogliono ritrovarsi dopo il parto, non solo 'tornare come prima'",
+      "Neomamme in transizione di carriera",
+      "Chi cerca un supporto olistico in italiano o inglese"
+    ],
+    "teamLabel": "Il team dedicato",
+    "cta": "Prenota la tua prima consulenza"
+  },
+  "about": {
+    "label": "Chi sono",
+    "heading": "Marta Fantozzi",
+    "bioIntro": "Benvenuti nel mio mondo di bellezza consapevole e percorsi esclusivi.\nMi chiamo Marta Fantozzi, estetista e specialista in medicina estetica italiana con oltre 10 anni di esperienza. Ho lavorato in istituti e studi di longevità, unendo estetica, trattamenti mirati e benessere psico-fisico in percorsi personalizzati. A Zurigo e online, offro percorsi su misura per pelle, energia e vitalità, che si adattano al tuo stile di vita.",
+    "bioDetail": "Dal 2021 al 2024 Marta ha lavorato come Therapist e Beauty Ambassador presso The Longevity Suite, avanzato centro di longevità a Monza, specializzandosi in crioterapia, UltraShape, Multi LED Sensory, LPG, radiofrequenza, Ultratone, laser e cosmecetica — oltre a tecniche avanzate di massaggio come Kobido e lifting manuale. Ha approfondito le competenze in nutrizione attraverso il digiuno intermittente, protocolli detox e integrazione. In precedenza ha diretto centri estetici a Roma e Parma, formato nuovi collaboratori e partecipato come make-up artist in televisione. Detiene anche la certificazione di primo livello Reiki.",
+    "valuesLabel": "I miei valori",
+    "values": {
+      "expertise": { "title": "Expertise", "desc": "10+ anni di esperienza, tecniche avanzate, centri di longevità." },
+      "empathy": { "title": "Empatia", "desc": "Ogni donna merita di sentirsi a casa nella propria pelle." },
+      "excellence": { "title": "Eccellenza", "desc": "Protocolli di livello medico, personalizzati per la tua vita." }
+    },
+    "credentialsLabel": "Specializzazioni",
+    "credentials": ["Kobido", "Crioterapia", "Radiofrequenza", "LPG", "Reiki", "Cosmecetica", "UltraShape", "Aromaterapia", "Laser", "Ultratone", "Nutrizione & Detox", "Epilaser"],
+    "teamLabel": "Il team",
+    "cta": "Prenota ora"
+  },
+  "booking": {
+    "label": "Prenota",
+    "heading": "Prenota la tua sessione",
+    "intro": "Conferma entro 24 ore. Trattamenti disponibili nell'area di Zurigo. Per consulenze online, il link alla sessione ti verrà inviato via email.",
+    "treatmentLabel": "Trattamento",
+    "treatmentPlaceholder": "Seleziona il trattamento che vuoi prenotare",
+    "selectedTreatment": "Trattamento selezionato",
+    "calendlyPlaceholder": "Widget di prenotazione Calendly",
+    "whatsappCta": "Preferisci scrivere su WhatsApp?",
+    "whatsappBtn": "Scrivi su WhatsApp",
+    "contactFallback": "Preferisci il modulo di contatto? →",
+    "successHeading": "Prenotazione confermata!",
+    "successText": "Riceverai una conferma via email entro 24 ore. Non vediamo l'ora di conoscerti.",
+    "successCta": "Torna alla home",
+    "cancelledHeading": "Prenotazione annullata",
+    "cancelledText": "Nessun addebito è stato effettuato. Puoi riprovare in qualsiasi momento.",
+    "cancelledCta": "Riprova"
+  },
+  "contact": {
+    "label": "Contatti",
+    "heading": "Scrivimi",
+    "intro": "Rispondo entro 24 ore. Puoi anche scrivermi su WhatsApp o Instagram.",
+    "infoHeading": "Trovarmi",
+    "addressLabel": "Zona",
+    "emailLabel": "Email",
+    "phoneLabel": "Telefono",
+    "whatsappCta": "Apri chat WhatsApp →",
+    "formHeading": "Inviami un messaggio",
+    "bookingStrip": "Pronta a iniziare il tuo percorso?",
+    "bookingStripCta": "Prenota ora",
+    "address": "Pfäffikon ZH, Svizzera",
+    "serviceArea": "Trattamenti nell'area di Zurigo",
+    "instagram": "@marta_beautyzurich",
+    "mapPlaceholder": "Mappa — Pfäffikon ZH",
+    "form": {
+      "namePlaceholder": "Nome",
+      "emailPlaceholder": "Email",
+      "phonePlaceholder": "Telefono",
+      "subjectPlaceholder": "Argomento",
+      "messagePlaceholder": "Scrivi qui il tuo messaggio…",
+      "submitBtn": "Invia messaggio",
+      "successMessage": "Messaggio inviato! Ti risponderò al più presto.",
+      "subjects": {
+        "generalInquiry": "Informazioni generali",
+        "bookingHelp": "Aiuto con la prenotazione",
+        "programInfo": "Programmi online",
+        "postpartum": "Percorso post-parto"
+      },
+      "errors": {
+        "nameRequired": "Il nome è obbligatorio.",
+        "emailRequired": "L'email è obbligatoria.",
+        "emailInvalid": "Inserisci un indirizzo email valido.",
+        "subjectRequired": "Seleziona un argomento.",
+        "messageRequired": "Il messaggio è obbligatorio.",
+        "generic": "Qualcosa è andato storto. Riprova o scrivimi su WhatsApp."
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Be your first priority.",
+    "links": "Link rapidi",
+    "address": "Pfäffikon ZH, Svizzera",
+    "rights": "© 2026 Marta Beauty Zurich",
+    "privacy": "Privacy Policy",
+    "cookie": "Cookie Policy"
+  },
+  "whatsapp": {
+    "label": "Scrivi su WhatsApp",
+    "message": "Ciao Marta! Vorrei saperne di più sui tuoi servizi 💆"
+  },
+  "cookie": {
+    "text": "Utilizziamo i cookie per migliorare la tua esperienza.",
+    "accept": "Accetta",
+    "manage": "Gestisci preferenze"
+  },
+  "errors": {
+    "notFound": "Pagina non trovata",
+    "notFoundDesc": "La pagina che cerchi non esiste.",
+    "backHome": "Torna alla home"
+  },
+  "legal": {
+    "backHome": "← Torna alla home",
+    "lastUpdated": "Ultimo aggiornamento: gennaio 2026",
+    "privacyTitle": "Privacy Policy — Marta Beauty Zurich",
+    "privacyPlaceholder": "La nostra Privacy Policy è in fase di redazione. Per qualsiasi domanda sul trattamento dei tuoi dati personali, scrivici all'indirizzo indicato nei Contatti.",
+    "privacyTodo": "TODO: inserire la Privacy Policy completa (conforme DSG svizzero / GDPR).",
+    "cookieTitle": "Cookie Policy — Marta Beauty Zurich",
+    "cookiePlaceholder": "La nostra Cookie Policy è in fase di redazione. Utilizziamo solo cookie tecnici strettamente necessari.",
+    "cookieTodo": "TODO: inserire la Cookie Policy completa."
+  }
+}

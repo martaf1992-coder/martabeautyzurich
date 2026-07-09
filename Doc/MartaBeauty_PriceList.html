@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marta Beauty Zurich — Treatment Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5EFE9;
+    --dark:  #1C1C1C;
+    --gold:  #B89A6A;
+    --rule:  #C8B49A;
+    --muted: #8C7A6B;
+    --bg:    #EDE5DC;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px 60px;
+    min-height: 100vh;
+  }
+
+  /* ── TOOLBAR ── */
+  .toolbar {
+    width: 100%;
+    max-width: 680px;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    justify-content: flex-end;
+  }
+  .toolbar button {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    padding: 8px 22px;
+    border: 1px solid var(--gold);
+    background: transparent;
+    color: var(--gold);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+  .toolbar button:hover { background: var(--gold); color: #fff; }
+  .toolbar button.primary { background: var(--gold); color: #fff; }
+  .toolbar button.primary:hover { background: #9a7f53; }
+
+  /* ── PAGE ── */
+  .page {
+    background: var(--cream);
+    width: 100%;
+    max-width: 680px;
+    padding: 14px 54px 40px;
+    position: relative;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.14);
+  }
+
+  /* double border */
+  .page::before, .page::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+  }
+  .page::before {
+    inset: 10px;
+    border: 0.6px solid var(--gold);
+  }
+  .page::after {
+    inset: 13px;
+    border: 0.25px solid var(--gold);
+  }
+
+  /* ── LOGO ── */
+  .logo-wrap {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .logo-wrap img {
+    height: 400px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* ── SUBTITLE ── */
+  .subtitle {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 28px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .section-header .rule { flex: 1; height: 0.4px; background: var(--rule); }
+  .section-header h2 {
+    font-size: 13px;
+    letter-spacing: 0.24em;
+    color: var(--gold);
+    font-weight: 400;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-style: normal;
+  }
+
+  /* ── ROW ── */
+  .row {
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+    padding: 5px 0;
+    border-bottom: 0.3px dotted var(--rule);
+    position: relative;
+  }
+  .row:last-child { border-bottom: none; }
+
+  .row .name {
+    font-size: 16px;
+    color: var(--dark);
+    font-weight: 400;
+    flex: 1;
+    padding-right: 8px;
+  }
+
+  .row .dur {
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+    min-width: 60px;
+    text-align: right;
+    padding-right: 18px;
+  }
+
+  .row .price {
+    font-size: 16px;
+    color: var(--gold);
+    min-width: 80px;
+    text-align: right;
+  }
+
+  /* ── EDITABLE FIELDS ── */
+  [contenteditable] {
+    outline: none;
+    border-radius: 2px;
+    transition: background 0.15s;
+  }
+  [contenteditable]:hover {
+    background: rgba(184,154,106,0.08);
+  }
+  [contenteditable]:focus {
+    background: rgba(184,154,106,0.15);
+    box-shadow: 0 0 0 1px rgba(184,154,106,0.4);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ── HINT ── */
+  .hint {
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── PRINT ── */
+  @page { size: A4 portrait; margin: 10mm 12mm; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { background: var(--bg) !important; padding: 0; }
+    .toolbar, .hint { display: none !important; }
+    .page {
+      box-shadow: none;
+      max-width: 100%;
+      width: 100%;
+      padding: 12px 40px 24px;
+      background: var(--cream) !important;
+    }
+    .logo-wrap img { height: 280px !important; }
+    .logo-wrap { margin-bottom: 0 !important; }
+    .subtitle { font-size: 11px !important; margin-bottom: 10px !important; }
+    .section { margin-bottom: 14px !important; }
+    .section-header { margin-bottom: 8px !important; }
+    .section-header h2 { font-size: 11px !important; }
+    .row { padding: 3px 0 !important; }
+    .row .name { font-size: 12.5px !important; }
+    .row .dur { font-size: 11px !important; }
+    .row .price { font-size: 12.5px !important; }
+    .footer { font-size: 10px !important; margin-top: 14px !important; }
+    [contenteditable]:hover,
+    [contenteditable]:focus {
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="hint">✦ Clicca su qualsiasi testo per modificarlo &nbsp;·&nbsp; Usa il pulsante Stampa per esportare in PDF</div>
+
+<div class="toolbar">
+  <button onclick="window.print()">⎙ &nbsp;Stampa / Esporta PDF</button>
+</div>
+
+<div class="page">
+
+  <div class="logo-wrap">
+    <!-- Logo embedded as base64 will be set by script below -->
+    <img id="logo" src="" alt="Marta Beauty Zurich">
+  </div>
+
+  <div class="subtitle" contenteditable="true">— Treatment Menu —</div>
+
+  <!-- MASSAGES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="rule"></div>
+      <h2 contenteditable="true">Massages</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="row">
+      <span class="name"  contenteditable="true">Ayurveda Massage</span>
+      <span class="dur"   contenteditable="true">90 min</span>
+      <span class="price" contenteditable="true">CHF 185.–</span>
+    </div>
+    <div class="row">
+      <span class="name"  contenteditable="true">Warm Candle Massage</span>
+      <span class="dur"   contenteditable="true">60 min</span>
+      <span class="price" contenteditable="true">CHF 120.–</span>
+    </div>
+    <div class="row">
+      <span class="name"  contenteditable="true">Deep Release Massage</span>
+      <span class="dur"   contenteditable="true">60 min</span>
+      <span class="price" contenteditable="true">CHF 120.–</span>
+    </div>
+    <div class="row">
+      <span class="name"  contenteditable="true">Back &amp; Neck Relief</span>
+      <span class="dur"   contenteditable="true">30 min</span>
+      <span class="price" contenteditable="true">CHF 70.–</span>
+    </div>
+    <div class="row">
+      <span class="name"  contenteditable="true">Deep Drain Massage</span>
+      <span class="dur"   contenteditable="true">60 min</span>
+      <span class="price" contenteditable="true">CHF 120.–</span>
+    </div>
+    <div class="row">
+      <span class="name"  contenteditable="true">Sculpt Massage</span>
+      <span class="dur"   contenteditable="true">60 min</span>
+      <span class="price" contenteditable="true">CHF 120.–</span>
+    </div>
+    <div class="row">
+      <span class="name"  contenteditable="true">Deep Infinity Touch</span>
+      <span class="dur"   contenteditable="true">90 min</span>
+      <span class="price" contenteditable="true">CHF 210.–</span>
+    </div>
+    <div class="row">
+      <span class="name"  contenteditable="true">Premamum Massage</span>
+      <span class="dur"   contenteditable="true">60 min</span>
+      <span class="price" contenteditable="true">CHF 120.–</span>
+    </div>
+  </div>
+
+  <!-- BODY TREATMENTS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="rule"></div>
+      <h2 contenteditable="true">Body Treatments</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="row">
+      <span class="name"  contenteditable="true">Sole Reflex Therapy</span>
+      <span class="dur"   contenteditable="true">60 min</span>
+      <span class="price" contenteditable="true">CHF 140.–</span>
+    </div>
+    <div class="row">
+      <span class="name"  contenteditable="true">Dry Brush Body Revival</span>
+      <span class="dur"   contenteditable="true">60 min</span>
+      <span class="price" contenteditable="true">CHF 110.–</span>
+    </div>
+    <div class="row">
+      <span class="name"  contenteditable="true">Detox Sculpt Wrap</span>
+      <span class="dur"   contenteditable="true">60 min</span>
+      <span class="price" contenteditable="true">CHF 120.–</span>
+    </div>
+  </div>
+
+  <!-- FACE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="rule"></div>
+      <h2 contenteditable="true">Face</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="row">
+      <span class="name"  contenteditable="true">Pure Glow Cleanse</span>
+      <span class="dur"   contenteditable="true">60 min</span>
+      <span class="price" contenteditable="true">CHF 120.–</span>
+    </div>
+    <div class="row">
+      <span class="name"  contenteditable="true">Silk Touch Facial</span>
+      <span class="dur"   contenteditable="true">60 min</span>
+      <span class="price" contenteditable="true">CHF 150.–</span>
+    </div>
+    <div class="row">
+      <span class="name"  contenteditable="true">Collagen Boost Ritual</span>
+      <span class="dur"   contenteditable="true">60 min</span>
+      <span class="price" contenteditable="true">CHF 150.–</span>
+    </div>
+  </div>
+
+  <div class="footer" contenteditable="true">Prices include VAT &nbsp;·&nbsp; Zurich, Switzerland</div>
+</div>
+
+<script>
+  // Embed the logo as base64 so it works offline and in print
+  const logoPath = "Logo.jpeg"; // relative — works if HTML is in same folder as logo
+  // Try to load logo from same directory; fallback to placeholder text
+  const img = document.getElementById('logo');
+  img.onerror = () => {
+    img.style.display = 'none';
+    const wrap = document.querySelector('.logo-wrap');
+    wrap.innerHTML = '<p style="font-size:22px;letter-spacing:0.18em;color:#1C1C1C;font-family:\'Cormorant Garamond\',serif;">MARTA BEAUTY ZURICH</p>';
+  };
+  img.src = logoPath;
+</script>
+</body>
+</html>

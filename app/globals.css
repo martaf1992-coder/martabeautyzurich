@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS custom properties ──────────────────────────────── */
+:root {
+  --color-bg:           #F0EBE3;
+  --color-bg-white:     #FFFFFF;
+  --color-bg-muted:     #FAF8F5;
+  --color-text:         #1A1A1A;
+  --color-text-secondary: #6B6560;
+  --color-accent:       #C9A0A0;
+  --color-accent-hover: #B08888;
+  --color-border:       #E5E0DA;
+  --tier-essential:     #F5F3EF;
+  --tier-integrated:    #EDF5F0;
+  --tier-luxury:        #F0EDF5;
+  --tier-mum:           #F5EDEB;
+}
+
+/* ─── Base reset ──────────────────────────────────────────── */
+@layer base {
+  html {
+    @apply scroll-smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-ink font-sans;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-light text-ink;
+    line-height: 1.1;
+  }
+
+  /* Remove default link styling */
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  /* Thin borders use the brand border color */
+  hr {
+    @apply border-border;
+    border-width: 0.5px;
+  }
+
+  /* Focus ring — accessible, brand-colored */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ─── Utility components ──────────────────────────────────── */
+@layer components {
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center
+           px-7 py-3 rounded-full
+           bg-accent text-white font-sans text-sm font-medium tracking-wide
+           transition-colors duration-200
+           hover:bg-accent-hover focus-visible:bg-accent-hover;
+  }
+
+  /* Ghost / outline button */
+  .btn-outline {
+    @apply inline-flex items-center justify-center
+           px-7 py-3 rounded-full
+           border border-ink text-ink font-sans text-sm font-medium tracking-wide
+           transition-colors duration-200
+           hover:bg-ink hover:text-white;
+  }
+
+  /* Section label — e.g. "TRATTAMENTI" above a heading */
+  .section-label {
+    @apply font-sans text-xs font-medium uppercase tracking-[0.18em] text-secondary;
+  }
+
+  /* Thin divider line */
+  .divider {
+    @apply w-full border-t border-border;
+    border-top-width: 0.5px;
+  }
+
+  /* Standard card */
+  .card {
+    @apply bg-white rounded-card border border-border p-6;
+  }
+
+  /* Ingredient / credential pill badge */
+  .badge {
+    @apply inline-block font-sans text-xs font-medium
+           px-3 py-1 rounded-full
+           border border-border text-secondary
+           bg-bg-muted whitespace-nowrap;
+  }
+
+  /* Scroll-triggered fade-up animation helper */
+  .animate-on-scroll {
+    @apply opacity-0;
+    animation: none;
+  }
+  .animate-on-scroll.visible {
+    @apply animate-fade-up opacity-100;
+  }
+}
+
+/* ─── Scrollbar styling ───────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg-muted); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }

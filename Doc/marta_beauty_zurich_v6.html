@@ -1,0 +1,200 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.sl { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-tertiary); margin-bottom: 8px; }
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; }
+.card-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.card-sub { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+.badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 9px; border-radius: 20px; margin-right: 4px; margin-bottom: 4px; }
+.badge-pink { background: #FBEAF0; color: #72243E; }
+.badge-coral { background: #FAECE7; color: #712B13; }
+.badge-gray { background: #F1EFE8; color: #444441; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; }
+.tag-row { display: flex; flex-wrap: wrap; margin-top: 6px; }
+.dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 6px; flex-shrink: 0; vertical-align: middle; position: relative; top: -1px; }
+.dot-gray   { background: #888780; }
+.dot-teal   { background: #1D9E75; }
+.dot-purple { background: #7F77DD; }
+.dot-coral  { background: #D85A30; }
+.dot-amber  { background: #BA7517; }
+.ir { display: flex; align-items: flex-start; gap: 6px; font-size: 12px; line-height: 1.55; margin-bottom: 4px; }
+.tier { border-radius: var(--border-radius-lg); padding: 13px 15px; border: 0.5px solid; }
+.t-ess   { background: #F1EFE8; border-color: #B4B2A9; }
+.t-ess .tl  { color: #444441; } .t-ess .ti  { color: #5F5E5A; }
+.t-plus  { background: #E1F5EE; border-color: #9FE1CB; }
+.t-plus .tl { color: #085041; } .t-plus .ti { color: #0F6E56; }
+.t-lux   { background: #EEEDFE; border-color: #AFA9EC; }
+.t-lux .tl  { color: #3C3489; } .t-lux .ti  { color: #534AB7; }
+.t-plusm { background: #FAECE7; border-color: #F5C4B3; }
+.t-plusm .tl { color: #712B13; } .t-plusm .ti { color: #993C1D; }
+.t-luxm  { background: #FAEEDA; border-color: #FAC775; }
+.t-luxm .tl  { color: #633806; } .t-luxm .ti  { color: #854F0B; }
+.tl { font-size: 12px; font-weight: 500; margin-bottom: 7px; }
+.ti { font-size: 12px; line-height: 1.7; }
+.track-label { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 8px; }
+.track-std { background: #E1F5EE; color: #085041; }
+.track-mum { background: #FAECE7; color: #712B13; }
+.track-col { display: flex; flex-direction: column; gap: 10px; }
+.tracks-wrap { display: grid; grid-template-columns: 1fr 0.5px 1fr; gap: 14px; margin-bottom: 20px; }
+.divider-v { width: 0.5px; background: var(--color-border-tertiary); }
+.expat-box { background: #FAECE7; border: 0.5px solid #F5C4B3; border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 20px; }
+.insight-row { display: flex; gap: 8px; align-items: flex-start; font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 4px; }
+.arr { color: #7F77DD; flex-shrink: 0; }
+</style>
+
+<div style="padding: 4px 0 20px;">
+
+  <!-- Brand -->
+  <div style="margin-bottom:20px;">
+    <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:3px;">
+      <span style="font-size:18px; font-weight:500; color:var(--color-text-primary);">Marta Beauty Zurich</span>
+      <span style="font-size:11px; color:#D4537E; font-weight:500; background:#FBEAF0; padding:2px 8px; border-radius:20px;">skin · benessere · community</span>
+    </div>
+    <div style="font-size:12px; color:var(--color-text-tertiary);">Zurigo · Online senza confini</div>
+  </div>
+
+  <!-- Filosofia -->
+  <div class="sl">Filosofia</div>
+  <div class="card" style="border-left:3px solid #D4537E; margin-bottom:20px;">
+    <div class="card-title" style="color:#993556;">Poco ma buono — qualità, non quantità</div>
+    <div class="card-sub">Non il prodotto, ma il principio attivo. Consulenze personalizzate che valorizzano semplicità e benessere autentico. La pelle come specchio del benessere globale della donna.</div>
+  </div>
+
+  <!-- Target -->
+  <div class="sl">Target</div>
+  <div class="grid-3" style="margin-bottom:12px;">
+    <div class="card"><div class="card-title">Mamma post-parto</div><div class="card-sub">Ritrovare sé stessa nel nuovo corpo e nella quotidianità</div></div>
+    <div class="card"><div class="card-title">Donna in carriera</div><div class="card-sub">Routine efficaci e sostenibili con poco tempo</div></div>
+    <div class="card"><div class="card-title">In cerca di sé</div><div class="card-sub">Momento di cambiamento, voglia di prendersi cura</div></div>
+  </div>
+  <div class="expat-box">
+    <div style="font-size:14px; font-weight:500; color:#712B13; margin-bottom:5px;">Focus speciale — Mamma expat a Zurigo</div>
+    <div style="font-size:12px; color:#993C1D; line-height:1.6; margin-bottom:8px;">Maternità in un paese straniero, spesso senza rete familiare. Bisogno di community, supporto olistico in italiano o inglese, e qualcuno che capisca davvero la sua realtà — non solo la sua pelle.</div>
+    <div style="display:flex; flex-wrap:wrap; gap:4px;">
+      <span style="background:#F0997B; color:#4A1B0C; font-size:11px; font-weight:500; padding:2px 9px; border-radius:20px;">Isolamento sociale</span>
+      <span style="background:#F0997B; color:#4A1B0C; font-size:11px; font-weight:500; padding:2px 9px; border-radius:20px;">Assenza rete familiare</span>
+      <span style="background:#F0997B; color:#4A1B0C; font-size:11px; font-weight:500; padding:2px 9px; border-radius:20px;">Stress da adattamento</span>
+      <span style="background:#F0997B; color:#4A1B0C; font-size:11px; font-weight:500; padding:2px 9px; border-radius:20px;">Community come rifugio</span>
+      <span style="background:#F0997B; color:#4A1B0C; font-size:11px; font-weight:500; padding:2px 9px; border-radius:20px;">IT · EN · FR</span>
+    </div>
+  </div>
+
+  <!-- PROGRAMMI -->
+  <div class="sl" style="margin-top:4px;">Programmi — solo online</div>
+
+  <!-- Essential -->
+  <div class="tier t-ess" style="margin-bottom:14px;">
+    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+      <div class="tl" style="margin:0;">Essential</div>
+      <span style="font-size:11px; color:#888780; font-style:italic;">— base per tutti i percorsi</span>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:4px 20px;" class="ti">
+      <div class="ir"><span class="dot dot-gray"></span>Consulenza skin personalizzata (incl. principi attivi)</div>
+      <div class="ir"><span class="dot dot-gray"></span>Programma routine online</div>
+      <div class="ir"><span class="dot dot-gray"></span>Kit strumenti base per skin care</div>
+      <div class="ir"><span class="dot dot-gray"></span>Supporto giornaliero per qualsiasi evenienza</div>
+      <div class="ir"><span class="dot dot-gray"></span>Playlist relax curata</div>
+      <div class="ir"><span class="dot dot-gray"></span>Aromaterapia consigliata per casa</div>
+    </div>
+  </div>
+
+  <!-- Doppio binario -->
+  <div class="tracks-wrap">
+
+    <!-- Standard -->
+    <div class="track-col">
+      <div class="track-label track-std">Percorso standard</div>
+      <div class="tier t-plus">
+        <div class="tl">Benessere integrato</div>
+        <div class="ti">
+          <div class="ir"><span class="dot dot-teal"></span>Tutto l'Essential +</div>
+          <div class="ir"><span class="dot dot-teal"></span>Nutrizionista (longevità, sonno, benessere)</div>
+          <div class="ir"><span class="dot dot-teal"></span>Kit base autotrattamento</div>
+          <div class="ir"><span class="dot dot-teal"></span>Follow-up settimanale live</div>
+        </div>
+      </div>
+      <div class="tier t-lux">
+        <div class="tl">Luxury</div>
+        <div class="ti">
+          <div class="ir"><span class="dot dot-purple"></span>Tutto Benessere integrato +</div>
+          <div class="ir"><span class="dot dot-purple"></span>Esperta benessere capelli</div>
+          <div class="ir"><span class="dot dot-purple"></span>Kit completo autotrattamento spedito</div>
+          <div class="ir"><span class="dot dot-purple"></span>Video tutorial personalizzati</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider-v"></div>
+
+    <!-- Mamme -->
+    <div class="track-col">
+      <div class="track-label track-mum">Percorso mamme</div>
+      <div class="tier t-plusm">
+        <div class="tl">Benessere integrato mamme</div>
+        <div class="ti">
+          <div class="ir"><span class="dot dot-coral"></span>Tutto l'Essential +</div>
+          <div class="ir"><span class="dot dot-coral"></span>Nutrizionista (longevità, sonno, benessere)</div>
+          <div class="ir"><span class="dot dot-coral"></span>Doula — supporto psicologico post-parto</div>
+          <div class="ir"><span class="dot dot-coral"></span>Kit base autotrattamento</div>
+          <div class="ir"><span class="dot dot-coral"></span>Follow-up settimanale live</div>
+        </div>
+      </div>
+      <div class="tier t-luxm">
+        <div class="tl">Luxury mamme</div>
+        <div class="ti">
+          <div class="ir"><span class="dot dot-amber"></span>Tutto Benessere integrato mamme +</div>
+          <div class="ir"><span class="dot dot-amber"></span>Esperta benessere capelli (incl. perdita post-parto)</div>
+          <div class="ir"><span class="dot dot-amber"></span>Kit completo autotrattamento spedito</div>
+          <div class="ir"><span class="dot dot-amber"></span>Video tutorial personalizzati</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Team -->
+  <div class="sl">Il team</div>
+  <div class="grid-4" style="margin-bottom:20px;">
+    <div class="card" style="border-top:2px solid #D4537E;">
+      <div class="card-title" style="font-size:13px;">Marta — skin expert</div>
+      <div class="card-sub">Pelle, principi attivi, routine. Il cuore del progetto.</div>
+    </div>
+    <div class="card" style="border-top:2px solid #1D9E75;">
+      <div class="card-title" style="font-size:13px;">Nutrizionista</div>
+      <div class="card-sub">Benessere, longevità, sonno. In entrambi i percorsi dal livello Benessere.</div>
+    </div>
+    <div class="card" style="border-top:2px solid #7F77DD;">
+      <div class="card-title" style="font-size:13px;">Esperta capelli</div>
+      <div class="card-sub">Solo livello Luxury. Perdita post-parto nel percorso mamme.</div>
+    </div>
+    <div class="card" style="border-top:2px solid #D85A30;">
+      <div class="card-title" style="font-size:13px;">Doula</div>
+      <div class="card-sub">Solo percorso mamme dal livello Benessere integrato.</div>
+    </div>
+  </div>
+
+  <!-- Trattamenti in sede -->
+  <div class="sl">Trattamenti in sede — separati dai programmi</div>
+  <div class="card" style="margin-bottom:20px;">
+    <div class="card-sub" style="margin-bottom:8px;">Servizi individuali prenotabili separatamente. Da completare con la lista dall'Excel.</div>
+    <div class="tag-row">
+      <span class="badge badge-pink">Massaggi</span>
+      <span class="badge badge-pink">Trattamenti viso</span>
+      <span class="badge badge-pink">Trattamenti estetici</span>
+      <span class="badge badge-coral">Trattamenti post-parto</span>
+      <span class="badge badge-gray">Da completare con Excel ↗</span>
+    </div>
+  </div>
+
+  <!-- Opportunità -->
+  <div class="sl">Opportunità strategiche</div>
+  <div style="display:flex; flex-direction:column; gap:7px;">
+    <div class="insight-row"><span class="arr">→</span><span>Il percorso mamme con Doula è raro nel beauty: posiziona Marta Beauty Zurich come progetto olistico, non solo estetico</span></div>
+    <div class="insight-row"><span class="arr">→</span><span>La mamma expat è un segmento poco presidiato a Zurigo — alto potenziale di passaparola nella propria comunità</span></div>
+    <div class="insight-row"><span class="arr">→</span><span>Il kit fisico spedito a casa crea un'esperienza tangibile per le clienti remote — differenziante rispetto ai competitor solo-digital</span></div>
+    <div class="insight-row"><span class="arr">→</span><span>I trattamenti in sede generano cashflow immediato e alimentano naturalmente l'ingresso nei programmi online</span></div>
+  </div>
+
+</div>
