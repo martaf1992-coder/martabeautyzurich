@@ -29,6 +29,7 @@ export default function ReviewCard({ compact = false, initialReviews = [] }: Pro
   const [activeIndex, setActiveIndex] = useState(0)
   const [state, setState] = useState<FormState>('idle')
   const [error, setError] = useState('')
+  const [rating, setRating] = useState(5)
 
   useEffect(() => {
     let mounted = true
@@ -71,11 +72,10 @@ export default function ReviewCard({ compact = false, initialReviews = [] }: Pro
 
     const form = event.currentTarget
     const formData = new FormData(form)
-    const selectedRating = Number(formData.get('rating'))
     const payload = {
       name: String(formData.get('name') ?? '').trim(),
       message: String(formData.get('message') ?? '').trim(),
-      rating: selectedRating,
+      rating,
     }
 
     if (
@@ -117,6 +117,7 @@ export default function ReviewCard({ compact = false, initialReviews = [] }: Pro
     }
 
     form.reset()
+    setRating(5)
     setState('success')
   }
 
@@ -210,25 +211,24 @@ export default function ReviewCard({ compact = false, initialReviews = [] }: Pro
             <legend className="font-sans text-xs text-secondary uppercase tracking-widest mb-2 block">
               {t('rating')}
             </legend>
+            <input type="hidden" name="rating" value={rating} />
             <div className="flex gap-2" role="radiogroup" aria-label={t('rating')}>
               {[1, 2, 3, 4, 5].map((value) => (
-                <label
+                <button
                   key={value}
-                  className="block cursor-pointer"
+                  type="button"
+                  role="radio"
+                  aria-checked={rating === value}
                   aria-label={t('ratingLabel', { rating: value })}
+                  onClick={() => setRating(value)}
+                  className={`flex h-10 w-10 items-center justify-center rounded-full border font-sans text-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${
+                    rating === value
+                      ? 'border-accent bg-accent text-white'
+                      : 'border-border bg-white text-secondary hover:border-accent'
+                  }`}
                 >
-                  <input
-                    type="radio"
-                    name="rating"
-                    value={value}
-                    defaultChecked={value === 5}
-                    required
-                    className="peer sr-only"
-                  />
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white font-sans text-sm text-secondary transition hover:border-accent peer-focus-visible:ring-2 peer-focus-visible:ring-accent peer-focus-visible:ring-offset-2 peer-checked:border-accent peer-checked:bg-accent peer-checked:text-white">
-                    {value}
-                  </span>
-                </label>
+                  {value}
+                </button>
               ))}
             </div>
           </fieldset>
