@@ -99,20 +99,28 @@ export default function ReviewCard({ compact = false, initialReviews = [] }: Pro
     })
 
     if (!response.ok) {
+      const errorMessage = response.status === 400 ? t('errors.submit') : t('errors.save')
       setState('error')
-      setError(t('errors.submit'))
+      setError(errorMessage)
       return
     }
 
     const data = await response.json()
+    const savedReview = data.review as LocalReview | undefined
+
+    if (savedReview) {
+      setReviews((current) => [savedReview, ...current.filter((review) => review.id !== savedReview.id)])
+      setActiveIndex(0)
+    }
+
     const reviewsResponse = await fetch('/api/reviews', { cache: 'no-store' })
     const reviewsData = reviewsResponse.ok ? await reviewsResponse.json() : null
 
-    if (Array.isArray(reviewsData?.reviews)) {
+    if (
+      Array.isArray(reviewsData?.reviews) &&
+      (!savedReview || reviewsData.reviews.some((review: LocalReview) => review.id === savedReview.id))
+    ) {
       setReviews(reviewsData.reviews)
-      setActiveIndex(0)
-    } else if (data.review) {
-      setReviews((current) => [data.review, ...current])
       setActiveIndex(0)
     }
 

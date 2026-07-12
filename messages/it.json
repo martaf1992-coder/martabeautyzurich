@@ -100,7 +100,8 @@
     "success": "Grazie. La tua recensione è ora visibile sul sito.",
     "errors": {
       "load": "Non è stato possibile caricare le recensioni.",
-      "submit": "Inserisci nome, valutazione e un messaggio di almeno 10 caratteri."
+      "submit": "Inserisci nome, valutazione e un messaggio di almeno 10 caratteri.",
+      "save": "La recensione è completa, ma al momento non può essere salvata. Riprova più tardi."
     }
   },
   "programs": {

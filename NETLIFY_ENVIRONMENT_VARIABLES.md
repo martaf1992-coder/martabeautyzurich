@@ -36,4 +36,4 @@ Use the same values for Production, Deploy previews, and Branch deploys unless y
 - `RESEND_API_KEY`, `STRIPE_SECRET_KEY`, and `STRIPE_WEBHOOK_SECRET` are server-side secrets. Never expose them in public code.
 - The Calendly event URLs should point to separate event types with the correct durations: 30, 45, 60, and 90 minutes.
 - For Zurich-based appointments, lock the timezone to Zurich inside each Calendly event type.
-- The local reviews feature currently writes to `data/reviews.json`. On Netlify/serverless hosting, filesystem writes are not persistent, so production reviews should be moved to a database before relying on them live.
+- Reviews use Netlify Blobs automatically inside Netlify functions. Local development continues to use `data/reviews.json`.

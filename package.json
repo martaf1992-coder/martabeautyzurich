@@ -12,6 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@netlify/blobs": "^10.7.9",
     "next": "^16.2.1",
     "next-intl": "^4.13.1",
     "react": "^18",

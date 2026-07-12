@@ -41,15 +41,26 @@ export async function POST(req: NextRequest) {
     )
   }
 
-  const reviews = await readReviews()
   const review: LocalReview = {
     id: crypto.randomUUID(),
     ...input,
     createdAt: new Date().toISOString(),
   }
 
-  const updatedReviews = [review, ...reviews].slice(0, 100)
-  await writeReviews(updatedReviews)
+  try {
+    const reviews = await readReviews()
+    const updatedReviews = [review, ...reviews].slice(0, 100)
+    await writeReviews(updatedReviews)
+  } catch (error) {
+    console.error('Review storage failed:', error)
+
+    if (!isJson) return redirectBack(req, 'error')
+
+    return NextResponse.json(
+      { error: 'Review storage unavailable.' },
+      { status: 503, headers: { 'Cache-Control': 'no-store' } }
+    )
+  }
 
   if (!isJson) return redirectBack(req, 'success')
 

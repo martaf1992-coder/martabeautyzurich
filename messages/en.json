@@ -100,7 +100,8 @@
     "success": "Thank you. Your review is now visible on the website.",
     "errors": {
       "load": "Reviews could not be loaded.",
-      "submit": "Please add your name, a rating, and a message of at least 10 characters."
+      "submit": "Please add your name, a rating, and a message of at least 10 characters.",
+      "save": "Your review is complete, but it could not be saved right now. Please try again later."
     }
   },
   "programs": {

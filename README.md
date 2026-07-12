@@ -59,9 +59,9 @@ public/images/         # Logo, slogan, treatment images (add your own)
 
 ## Local Reviews
 
-Reviews are stored in `data/reviews.json` through `/api/reviews` and displayed in the carousel on the home page and review page.
+Reviews are submitted through `/api/reviews` and displayed in the carousel on the home page and review page. In local development, reviews are stored in `data/reviews.json`. On Netlify functions, reviews are stored in Netlify Blobs with `data/reviews.json` used as seed/fallback content.
 
-Use `/it/review` or `/en/review` for printed QR cards. On a serverless host such as Vercel, filesystem writes are not persistent, so replace the JSON file storage with a database before collecting production reviews.
+Use `/it/review` or `/en/review` for printed QR cards.
 
 ## Calendly Booking
 
