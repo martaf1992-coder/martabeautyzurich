@@ -6,6 +6,7 @@ import { LocalReview } from '@/lib/localReviews'
 
 interface Props {
   compact?: boolean
+  initialReviews?: LocalReview[]
 }
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
@@ -22,18 +23,17 @@ function Stars({ rating, label }: { rating: number; label?: string }) {
   )
 }
 
-export default function ReviewCard({ compact = false }: Props) {
+export default function ReviewCard({ compact = false, initialReviews = [] }: Props) {
   const t = useTranslations('reviews')
-  const [reviews, setReviews] = useState<LocalReview[]>([])
+  const [reviews, setReviews] = useState<LocalReview[]>(initialReviews)
   const [activeIndex, setActiveIndex] = useState(0)
-  const [rating, setRating] = useState(5)
   const [state, setState] = useState<FormState>('idle')
   const [error, setError] = useState('')
 
   useEffect(() => {
     let mounted = true
 
-    fetch('/api/reviews')
+    fetch('/api/reviews', { cache: 'no-store' })
       .then((res) => res.ok ? res.json() : Promise.reject())
       .then((data) => {
         if (mounted && Array.isArray(data.reviews)) {
@@ -68,15 +68,29 @@ export default function ReviewCard({ compact = false }: Props) {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setError('')
-    setState('loading')
 
     const form = event.currentTarget
     const formData = new FormData(form)
+    const selectedRating = Number(formData.get('rating'))
     const payload = {
-      name: String(formData.get('name') ?? ''),
-      message: String(formData.get('message') ?? ''),
-      rating,
+      name: String(formData.get('name') ?? '').trim(),
+      message: String(formData.get('message') ?? '').trim(),
+      rating: selectedRating,
     }
+
+    if (
+      payload.name.length < 2 ||
+      payload.message.length < 10 ||
+      !Number.isInteger(payload.rating) ||
+      payload.rating < 1 ||
+      payload.rating > 5
+    ) {
+      setState('error')
+      setError(t('errors.submit'))
+      return
+    }
+
+    setState('loading')
 
     const response = await fetch('/api/reviews', {
       method: 'POST',
@@ -91,13 +105,18 @@ export default function ReviewCard({ compact = false }: Props) {
     }
 
     const data = await response.json()
-    if (data.review) {
+    const reviewsResponse = await fetch('/api/reviews', { cache: 'no-store' })
+    const reviewsData = reviewsResponse.ok ? await reviewsResponse.json() : null
+
+    if (Array.isArray(reviewsData?.reviews)) {
+      setReviews(reviewsData.reviews)
+      setActiveIndex(0)
+    } else if (data.review) {
       setReviews((current) => [data.review, ...current])
       setActiveIndex(0)
     }
 
     form.reset()
-    setRating(5)
     setState('success')
   }
 
@@ -161,7 +180,12 @@ export default function ReviewCard({ compact = false }: Props) {
           )}
         </div>
 
-        <form onSubmit={handleSubmit} noValidate className="border border-border rounded-card bg-white p-6 sm:p-8 flex flex-col gap-5">
+        <form
+          onSubmit={handleSubmit}
+          action="/api/reviews"
+          method="post"
+          className="border border-border rounded-card bg-white p-6 sm:p-8 flex flex-col gap-5"
+        >
           <div>
             <p className="section-label mb-2">{t('formLabel')}</p>
             <h3 className="font-serif text-2xl text-ink">{t('formHeading')}</h3>
@@ -188,20 +212,23 @@ export default function ReviewCard({ compact = false }: Props) {
             </legend>
             <div className="flex gap-2" role="radiogroup" aria-label={t('rating')}>
               {[1, 2, 3, 4, 5].map((value) => (
-                <button
+                <label
                   key={value}
-                  type="button"
-                  onClick={() => setRating(value)}
-                  className={`h-10 w-10 rounded-full border font-sans text-sm transition ${
-                    value <= rating
-                      ? 'border-accent bg-accent text-white'
-                      : 'border-border bg-white text-secondary hover:border-accent'
-                  }`}
-                  aria-pressed={value === rating}
+                  className="block cursor-pointer"
                   aria-label={t('ratingLabel', { rating: value })}
                 >
-                  {value}
-                </button>
+                  <input
+                    type="radio"
+                    name="rating"
+                    value={value}
+                    defaultChecked={value === 5}
+                    required
+                    className="peer sr-only"
+                  />
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white font-sans text-sm text-secondary transition hover:border-accent peer-focus-visible:ring-2 peer-focus-visible:ring-accent peer-focus-visible:ring-offset-2 peer-checked:border-accent peer-checked:bg-accent peer-checked:text-white">
+                    {value}
+                  </span>
+                </label>
               ))}
             </div>
           </fieldset>

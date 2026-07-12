@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import ReviewCard from '@/components/ui/ReviewCard'
+import { readReviews } from '@/lib/reviewsStore'
 import { getTranslations } from 'next-intl/server'
 import Link from 'next/link'
 
@@ -14,6 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BookingSuccessPage({ params }: Props) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'booking' })
+  const reviews = await readReviews()
 
   return (
     <div className="pt-24 pb-20 min-h-screen flex items-center justify-center bg-parchment">
@@ -24,7 +26,7 @@ export default async function BookingSuccessPage({ params }: Props) {
         <Link href={`/${locale}`} className="btn-primary">
           {t('successCta')}
         </Link>
-        <ReviewCard compact />
+        <ReviewCard compact initialReviews={reviews} />
       </div>
     </div>
   )

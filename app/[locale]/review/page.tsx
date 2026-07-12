@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import ReviewCard from '@/components/ui/ReviewCard'
+import { readReviews } from '@/lib/reviewsStore'
 import { getTranslations } from 'next-intl/server'
 
 interface Props {
@@ -16,10 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function ReviewPage() {
+export default async function ReviewPage() {
+  const reviews = await readReviews()
+
   return (
     <main className="pt-24 bg-white min-h-screen">
-      <ReviewCard />
+      <ReviewCard initialReviews={reviews} />
     </main>
   )
 }

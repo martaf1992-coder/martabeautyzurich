@@ -1,6 +1,7 @@
 import ScrollAnimator from '@/components/ui/ScrollAnimator'
 import ReviewCard from '@/components/ui/ReviewCard'
 import TreatmentCard from '@/components/ui/TreatmentCard'
+import { readReviews } from '@/lib/reviewsStore'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
@@ -45,6 +46,7 @@ export default async function HomePage({ params }: Props) {
   const tFeatured = await getTranslations({ locale, namespace: 'featured' })
   const tAbout = await getTranslations({ locale, namespace: 'aboutTeaser' })
   const tNav = await getTranslations({ locale, namespace: 'nav' })
+  const reviews = await readReviews()
 
   // Featured treatments shown on home page
   const featuredKeys = ['deepInfinity', 'collagen', 'ayurveda']
@@ -225,7 +227,7 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       {/* ── FOOTER CTA STRIP ────────────────────────────────── */}
-      <ReviewCard />
+      <ReviewCard initialReviews={reviews} />
 
       <section className="bg-ink py-16 px-6 text-center" aria-label="Call to action">
         <h2 className="font-serif text-display-md font-light text-white mb-6">
