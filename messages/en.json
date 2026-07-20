@@ -187,107 +187,119 @@
         "it": "Massaggio Ayurveda",
         "desc": "An ancient sensory journey to rebalance body and mind through traditional Ayurvedic techniques.",
         "duration": "90 min",
-        "price": "195"
+        "price": "145"
       },
       "candle": {
         "en": "Warm Candle Massage",
         "it": "Massaggio Candele",
         "desc": "Warm aromatic candle wax melted onto the body for deep nourishing, relaxing, and sensory benefits.",
         "duration": "60 min",
-        "price": "130"
+        "price": "100"
       },
       "deepRelease": {
         "en": "Deep Release Massage",
         "it": "Massaggio Decontratturante",
         "desc": "Targeted techniques on muscle knots to release deep tension and restore lightness to the body.",
         "duration": "60 min",
-        "price": "130"
+        "price": "95"
       },
       "backNeck": {
         "en": "Back & Neck Relief",
         "it": "Back & Neck",
         "desc": "A focused session on the back and neck — ideal for those who spend long hours at a screen.",
         "duration": "30 min",
-        "price": "80"
+        "price": "60"
       },
       "drain": {
         "en": "Deep Drain Massage",
         "it": "Massaggio Drenante",
         "desc": "Specific draining manoeuvres to stimulate lymphatic circulation and reduce puffiness and water retention.",
-        "duration": "60 min",
-        "price": "130"
+        "duration": "50 min",
+        "price": "80"
       },
       "sculpt": {
         "en": "Sculpt Massage",
         "it": "Massaggio Anti-Cellulite",
         "desc": "Intensive anti-cellulite treatment to improve skin texture and redefine body contours.",
         "duration": "60 min",
-        "price": "130"
+        "price": "95"
       },
       "deepInfinity": {
         "en": "The Sense Reset",
         "it": "The Sense Reset",
         "desc": "A sensorial massage to restore body and mind.",
         "duration": "90 min",
-        "price": "220"
+        "price": "140"
       },
       "premamum": {
         "en": "Premamum Massage",
         "it": "Massaggio Pre-mamma",
         "desc": "A gentle, safe massage for expectant mothers, designed to ease pregnancy discomforts.",
         "duration": "60 min",
-        "price": "130"
+        "price": "80"
       },
       "reflex": {
         "en": "Sole Reflex Therapy",
         "it": "Riflessologia Plantare",
         "desc": "Foot reflexology stimulates reflex points to naturally rebalance organs and body systems.",
         "duration": "60 min",
-        "price": "150"
+        "price": "95"
       },
       "dryBrush": {
         "en": "Dry Brush Body Revival",
         "it": "Dry Brushing",
         "desc": "Dry exfoliation with a natural brush to stimulate microcirculation, smooth the skin, and support drainage.",
         "duration": "60 min",
-        "price": "120"
+        "price": "85"
       },
       "wrap": {
         "en": "Detox Sculpt Wrap",
         "it": "Bendaggio",
         "desc": "Draining and sculpting wrap with detox active ingredients to smooth, firm, and reshape your silhouette.",
         "duration": "60 min",
-        "price": "130"
+        "price": "100"
+      },
+      "pureBody": {
+        "en": "Pure Body",
+        "it": "Pure Body",
+        "desc": "A detoxifying treatment that restores vitality to the body through an initial exfoliation phase, followed by the application of anti-inflammatory and purifying thermal mud.",
+        "duration": "60 min",
+        "price": "100"
       },
       "cleanse": {
         "en": "Pure Glow Cleanse",
         "it": "Pulizia Viso",
         "desc": "Deep facial cleanse to clear pores, even skin tone, and restore luminosity.",
         "duration": "60 min",
-        "price": "130"
+        "price": "80"
       },
       "silk": {
         "en": "Silk Touch Facial",
         "it": "Trattamento Seta",
         "desc": "An intensive facial with silky textures that nourish, soften, and illuminate skin in depth.",
         "duration": "60 min",
-        "price": "160"
+        "price": "120"
       },
       "collagen": {
         "en": "Collagen Boost Ritual",
         "it": "Trattamento Anti-age (Collagen Boost)",
-        "desc": "Anti-ageing ritual with collagen-stimulating technology for firmer, smoother, more youthful skin.",
+        "desc": "Anti-ageing ritual with collagen-stimulating for firmer, smoother, more youthful skin.",
         "duration": "60 min",
-        "price": "160"
+        "price": "120"
+      },
+      "phytoHarmony": {
+        "en": "Phyto Harmony Ritual",
+        "it": "Phyto Harmony Ritual",
+        "desc": "A holistic facial treatment combining three massage techniques for the face, visceral area, and soles of the feet. This synergy stimulates the main organs involved in the body’s natural detoxification processes, promoting a sense of lightness, balance, and deep well-being.",
+        "duration": "90 min",
+        "price": "130"
       },
       "curativePedicure": {
         "en": "Curative Pedicure",
         "it": "Pedicure Curativa",
         "desc": "A focused foot care treatment for comfort, grooming, and a clean, healthy finish.",
         "duration": "45 min",
-        "price": "45",
-        "originalPrice": "55",
-        "discountLabel": "-10 CHF"
+        "price": "45"
       }
     }
   },
@@ -330,9 +342,10 @@
     "treatmentPlaceholder": "Select the treatment you want to book",
     "selectedTreatment": "Selected treatment",
     "calendlyPlaceholder": "Calendly booking widget",
+    "calendarUnavailable": "Online booking for {duration}-minute treatments is not yet configured. Please contact Marta on WhatsApp to arrange your appointment.",
     "whatsappCta": "Prefer WhatsApp?",
     "whatsappBtn": "Message on WhatsApp",
-    "contactFallback": "Prefer the contact form? →",
+    "contactFallback": "Need help? View the contact options →",
     "successHeading": "Booking confirmed!",
     "successText": "You'll receive a confirmation email within 24 hours. We can't wait to meet you.",
     "successCta": "Back to home",

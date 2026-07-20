@@ -37,6 +37,13 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Unknown price key.' }, { status: 400 })
   }
 
+  if (PRICE_IDS[priceKey].includes('REPLACE')) {
+    return NextResponse.json(
+      { error: 'Checkout for this program is not configured yet.' },
+      { status: 503 }
+    )
+  }
+
   const origin = req.headers.get('origin') ?? process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
 
   try {

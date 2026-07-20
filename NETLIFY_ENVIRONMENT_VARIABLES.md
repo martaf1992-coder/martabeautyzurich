@@ -13,6 +13,7 @@ Use the same values for Production, Deploy previews, and Branch deploys unless y
 | `NEXT_PUBLIC_SITE_URL` | `https://martabeautyzurich.com` | Builds correct absolute URLs for redirects and Stripe checkout fallback. |
 | `NEXT_PUBLIC_CALENDLY_30MIN_URL` | `https://calendly.com/marta-f1992/30min` | Booking calendar for 30 minute treatments. |
 | `NEXT_PUBLIC_CALENDLY_45MIN_URL` | `https://calendly.com/marta-f1992/45min` | Booking calendar for 45 minute treatments. |
+| `NEXT_PUBLIC_CALENDLY_50MIN_URL` | `https://calendly.com/marta-f1992/50min` | Booking calendar for 50 minute treatments. |
 | `NEXT_PUBLIC_CALENDLY_60MIN_URL` | `https://calendly.com/marta-f1992/60min` | Booking calendar for 60 minute treatments. |
 | `NEXT_PUBLIC_CALENDLY_90MIN_URL` | `https://calendly.com/marta-f1992/90min` | Booking calendar for 90 minute treatments. |
 | `RESEND_API_KEY` | `re_...` | Sends contact form emails through Resend. |
@@ -34,6 +35,6 @@ Use the same values for Production, Deploy previews, and Branch deploys unless y
 
 - Variables starting with `NEXT_PUBLIC_` are exposed to the browser and must not contain secrets.
 - `RESEND_API_KEY`, `STRIPE_SECRET_KEY`, and `STRIPE_WEBHOOK_SECRET` are server-side secrets. Never expose them in public code.
-- The Calendly event URLs should point to separate event types with the correct durations: 30, 45, 60, and 90 minutes.
+- The Calendly event URLs should point to separate active event types with the correct durations: 30, 45, 50, 60, and 90 minutes.
 - For Zurich-based appointments, lock the timezone to Zurich inside each Calendly event type.
 - Reviews use Netlify Blobs automatically inside Netlify functions. Local development continues to use `data/reviews.json`.

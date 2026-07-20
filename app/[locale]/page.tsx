@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 // JSON-LD structured data
-const jsonLd = {
+const baseJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Marta Beauty Zurich',
@@ -33,7 +33,6 @@ const jsonLd = {
     addressRegion: 'ZH',
     addressCountry: 'CH',
   },
-  priceRange: 'CHF 80–220',
   serviceType: 'Mobile Beauty & Wellness',
 }
 
@@ -46,7 +45,14 @@ export default async function HomePage({ params }: Props) {
   const tFeatured = await getTranslations({ locale, namespace: 'featured' })
   const tAbout = await getTranslations({ locale, namespace: 'aboutTeaser' })
   const tNav = await getTranslations({ locale, namespace: 'nav' })
+  const tTreatments = await getTranslations({ locale, namespace: 'treatments' })
   const reviews = await readReviews()
+  const treatmentItems = tTreatments.raw('items') as Record<string, { price: string }>
+  const treatmentPrices = Object.values(treatmentItems).map(({ price }) => Number(price))
+  const jsonLd = {
+    ...baseJsonLd,
+    priceRange: `CHF ${Math.min(...treatmentPrices)}–${Math.max(...treatmentPrices)}`,
+  }
 
   // Featured treatments shown on home page
   const featuredKeys = ['deepInfinity', 'collagen', 'ayurveda']

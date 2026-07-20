@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const massages = ['ayurveda', 'candle', 'deepRelease', 'backNeck', 'drain', 'sculpt', 'deepInfinity', 'premamum']
-const body     = ['reflex', 'dryBrush', 'wrap']
-const facial   = ['cleanse', 'silk', 'collagen']
+const body     = ['reflex', 'dryBrush', 'wrap', 'pureBody']
+const facial   = ['cleanse', 'silk', 'collagen', 'phytoHarmony']
 const pedicure = ['curativePedicure']
 
 export default async function TreatmentsPage({ params }: Props) {

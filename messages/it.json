@@ -187,107 +187,119 @@
         "it": "Massaggio Ayurveda",
         "desc": "Un viaggio sensoriale millenario per riequilibrare corpo e mente attraverso tecniche ayurvediche tradizionali.",
         "duration": "90 min",
-        "price": "195"
+        "price": "145"
       },
       "candle": {
         "en": "Warm Candle Massage",
         "it": "Massaggio Candele",
         "desc": "Cera tiepida di candela aromatica sciolta sul corpo per un'azione nutriente, rilassante e sensoriale profonda.",
         "duration": "60 min",
-        "price": "130"
+        "price": "100"
       },
       "deepRelease": {
         "en": "Deep Release Massage",
         "it": "Massaggio Decontratturante",
         "desc": "Tecniche mirate sui nodi muscolari per sciogliere tensioni profonde e restituire leggerezza al corpo.",
         "duration": "60 min",
-        "price": "130"
+        "price": "95"
       },
       "backNeck": {
         "en": "Back & Neck Relief",
         "it": "Back & Neck",
         "desc": "Sessione focalizzata su schiena e cervicale — ideale per chi lavora molte ore davanti allo schermo.",
         "duration": "30 min",
-        "price": "80"
+        "price": "60"
       },
       "drain": {
         "en": "Deep Drain Massage",
         "it": "Massaggio Drenante",
         "desc": "Manovre drenanti specifiche per stimolare la circolazione linfatica e ridurre gonfiori e ritenzione.",
-        "duration": "60 min",
-        "price": "130"
+        "duration": "50 min",
+        "price": "80"
       },
       "sculpt": {
         "en": "Sculpt Massage",
         "it": "Massaggio Anti-Cellulite",
         "desc": "Trattamento anticellulite intensivo per migliorare la texture della pelle e ridefinire i contorni corporei.",
         "duration": "60 min",
-        "price": "130"
+        "price": "95"
       },
       "deepInfinity": {
         "en": "The Sense Reset",
         "it": "The Sense Reset",
         "desc": "Un massaggio sensoriale per riequilibrare corpo e mente.",
         "duration": "90 min",
-        "price": "220"
+        "price": "140"
       },
       "premamum": {
         "en": "Premamum Massage",
         "it": "Massaggio Pre-mamma",
         "desc": "Massaggio dolce e sicuro per le future mamme, pensato per alleviare i discomfort della gravidanza.",
         "duration": "60 min",
-        "price": "130"
+        "price": "80"
       },
       "reflex": {
         "en": "Sole Reflex Therapy",
         "it": "Riflessologia Plantare",
         "desc": "La riflessologia plantare stimola i punti riflessi del piede per riequilibrare organi e sistemi in modo naturale.",
         "duration": "60 min",
-        "price": "150"
+        "price": "95"
       },
       "dryBrush": {
         "en": "Dry Brush Body Revival",
         "it": "Dry Brushing",
         "desc": "Esfoliazione a secco con spazzola naturale per stimolare il microcircolo, levigare la pelle e favorire il drenaggio.",
         "duration": "60 min",
-        "price": "120"
+        "price": "85"
       },
       "wrap": {
         "en": "Detox Sculpt Wrap",
         "it": "Bendaggio",
         "desc": "Bendaggio drenante e modellante con principi attivi detox per levigare, rassodare e rimodellare la silhouette.",
         "duration": "60 min",
-        "price": "130"
+        "price": "100"
+      },
+      "pureBody": {
+        "en": "Pure Body",
+        "it": "Pure Body",
+        "desc": "Trattamento detossinante che dona al corpo nuova vitalità attraverso una prima fase di esfoliazione, seguita dall’applicazione di fango termale dall’effetto antinfiammatorio e depurativo.",
+        "duration": "60 min",
+        "price": "100"
       },
       "cleanse": {
         "en": "Pure Glow Cleanse",
         "it": "Pulizia Viso",
         "desc": "Pulizia profonda del viso per liberare i pori, uniformare il tono e restituire luminosità alla pelle.",
         "duration": "60 min",
-        "price": "130"
+        "price": "80"
       },
       "silk": {
         "en": "Silk Touch Facial",
         "it": "Trattamento Seta",
         "desc": "Trattamento viso intensivo con texture setosa che nutre, ammorbidisce e illumina la pelle in profondità.",
         "duration": "60 min",
-        "price": "160"
+        "price": "120"
       },
       "collagen": {
         "en": "Collagen Boost Ritual",
         "it": "Trattamento Anti-age (Collagen Boost)",
-        "desc": "Rituale anti-age con tecnologie di stimolazione del collagene per pelle più compatta, liscia e giovane.",
+        "desc": "Rituale anti-age di stimolazione del collagene per pelle più compatta, liscia e giovane.",
         "duration": "60 min",
-        "price": "160"
+        "price": "120"
+      },
+      "phytoHarmony": {
+        "en": "Phyto Harmony Ritual",
+        "it": "Phyto Harmony Ritual",
+        "desc": "Un trattamento viso olistico che combina tre tecniche di massaggio: viso, area viscerale e zona plantare. Questa sinergia stimola i principali organi coinvolti nei naturali processi di detossinazione, favorendo una sensazione di leggerezza, equilibrio e benessere profondo.",
+        "duration": "90 min",
+        "price": "130"
       },
       "curativePedicure": {
         "en": "Curative Pedicure",
         "it": "Pedicure Curativa",
         "desc": "Trattamento mirato per la cura del piede, pensato per comfort e ordine.",
         "duration": "45 min",
-        "price": "45",
-        "originalPrice": "55",
-        "discountLabel": "-10 CHF"
+        "price": "45"
       }
     }
   },
@@ -330,9 +342,10 @@
     "treatmentPlaceholder": "Seleziona il trattamento che vuoi prenotare",
     "selectedTreatment": "Trattamento selezionato",
     "calendlyPlaceholder": "Widget di prenotazione Calendly",
+    "calendarUnavailable": "La prenotazione online per i trattamenti da {duration} minuti non è ancora configurata. Contatta Marta su WhatsApp per concordare l’appuntamento.",
     "whatsappCta": "Preferisci scrivere su WhatsApp?",
     "whatsappBtn": "Scrivi su WhatsApp",
-    "contactFallback": "Preferisci il modulo di contatto? →",
+    "contactFallback": "Hai bisogno di aiuto? Vedi i contatti →",
     "successHeading": "Prenotazione confermata!",
     "successText": "Riceverai una conferma via email entro 24 ore. Non vediamo l'ora di conoscerti.",
     "successCta": "Torna alla home",

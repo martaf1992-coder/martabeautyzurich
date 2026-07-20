@@ -4,11 +4,12 @@ import { useTranslations } from 'next-intl'
 import { useMemo, useState } from 'react'
 
 const CALENDLY_TIMEZONE = 'Europe/Zurich'
-const CALENDLY_URLS_BY_DURATION: Record<number, string> = {
-  30: process.env.NEXT_PUBLIC_CALENDLY_30MIN_URL ?? 'https://calendly.com/marta-f1992/30min',
-  45: process.env.NEXT_PUBLIC_CALENDLY_45MIN_URL ?? 'https://calendly.com/marta-f1992/45min',
-  60: process.env.NEXT_PUBLIC_CALENDLY_60MIN_URL ?? 'https://calendly.com/marta-f1992/60min',
-  90: process.env.NEXT_PUBLIC_CALENDLY_90MIN_URL ?? 'https://calendly.com/marta-f1992/90min',
+const CALENDLY_URLS_BY_DURATION: Partial<Record<number, string>> = {
+  30: process.env.NEXT_PUBLIC_CALENDLY_30MIN_URL || 'https://calendly.com/marta-f1992/30min',
+  45: process.env.NEXT_PUBLIC_CALENDLY_45MIN_URL || undefined,
+  50: process.env.NEXT_PUBLIC_CALENDLY_50MIN_URL || undefined,
+  60: process.env.NEXT_PUBLIC_CALENDLY_60MIN_URL || undefined,
+  90: process.env.NEXT_PUBLIC_CALENDLY_90MIN_URL || undefined,
 }
 const WA_NUMBER = '41766717753'
 const treatmentKeys = [
@@ -23,9 +24,11 @@ const treatmentKeys = [
   'reflex',
   'dryBrush',
   'wrap',
+  'pureBody',
   'cleanse',
   'silk',
   'collagen',
+  'phytoHarmony',
   'curativePedicure',
 ] as const
 
@@ -71,10 +74,8 @@ export default function BookingCalendar({ initialTreatment, locale }: Props) {
     return parseDurationMinutes(treatment.duration)
   }, [selectedTreatment, tTreatments])
 
-  const calendlyUrl = buildCalendlyUrl(
-    CALENDLY_URLS_BY_DURATION[selectedTreatmentDuration] ?? CALENDLY_URLS_BY_DURATION[30],
-    selectedTreatmentLabel
-  )
+  const calendlyBaseUrl = CALENDLY_URLS_BY_DURATION[selectedTreatmentDuration]
+  const calendlyUrl = calendlyBaseUrl ? buildCalendlyUrl(calendlyBaseUrl, selectedTreatmentLabel) : null
 
   const waMessage = encodeURIComponent(
     locale === 'it'
@@ -114,18 +115,26 @@ export default function BookingCalendar({ initialTreatment, locale }: Props) {
         )}
       </div>
 
-      <div
-        className="rounded-card border border-border bg-white overflow-hidden min-h-[700px] mb-10"
-        aria-label={tBooking('calendlyPlaceholder')}
-      >
-        <iframe
-          key={calendlyUrl}
-          src={calendlyUrl}
-          title={tBooking('calendlyPlaceholder')}
-          className="block w-full h-[760px] border-0"
-          loading="lazy"
-        />
-      </div>
+      {calendlyUrl ? (
+        <div
+          className="rounded-card border border-border bg-white overflow-hidden min-h-[700px] mb-10"
+          aria-label={tBooking('calendlyPlaceholder')}
+        >
+          <iframe
+            key={calendlyUrl}
+            src={calendlyUrl}
+            title={tBooking('calendlyPlaceholder')}
+            className="block w-full h-[760px] border-0"
+            loading="lazy"
+          />
+        </div>
+      ) : (
+        <div className="mb-10 flex min-h-52 items-center justify-center rounded-card border border-border bg-bg-muted p-8 text-center">
+          <p className="max-w-md font-sans text-sm leading-relaxed text-secondary">
+            {tBooking('calendarUnavailable', { duration: selectedTreatmentDuration })}
+          </p>
+        </div>
+      )}
 
       <div className="divider my-10" />
 

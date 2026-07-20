@@ -1,7 +1,13 @@
+'use client'
+
 import type { Locale } from '@/i18n/routing'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+const CONTACT_PHONE = '+41 76 671 77 53'
+const INSTAGRAM_URL = 'https://www.instagram.com/martabeautyzurich'
 
 interface Props {
   locale: Locale
@@ -10,6 +16,7 @@ interface Props {
 export default function Footer({ locale }: Props) {
   const t = useTranslations('footer')
   const nav = useTranslations('nav')
+  const pathname = usePathname()
 
   const links = [
     { href: `/${locale}/programs`, label: nav('programs') },
@@ -20,7 +27,10 @@ export default function Footer({ locale }: Props) {
     { href: `/${locale}/booking`, label: nav('book') },
   ]
 
-  const otherLocale: Locale = locale === 'it' ? 'en' : 'it'
+  const pathForLocale = (targetLocale: Locale) => {
+    const localizedPath = pathname.replace(/^\/(it|en)(?=\/|$)/, `/${targetLocale}`)
+    return localizedPath === pathname ? `/${targetLocale}` : localizedPath
+  }
 
   return (
     <footer className="bg-parchment border-t border-border">
@@ -40,15 +50,19 @@ export default function Footer({ locale }: Props) {
             </Link>
             <p className="font-serif text-lg font-light italic text-ink">{t('tagline')}</p>
             <p className="font-sans text-sm text-secondary">{t('address')}</p>
-            {/* TODO: insert email */}
-            {/* TODO: insert phone */}
             <a
-              href="https://instagram.com/marta_beautyzurich"
+              href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`}
+              className="font-sans text-sm text-secondary hover:text-accent transition-colors"
+            >
+              {CONTACT_PHONE}
+            </a>
+            <a
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="font-sans text-sm text-secondary hover:text-accent transition-colors"
             >
-              @marta_beautyzurich
+              @martabeautyzurich
             </a>
           </div>
 
@@ -71,12 +85,12 @@ export default function Footer({ locale }: Props) {
           {/* Language + booking CTA */}
           <div className="flex flex-col gap-6">
             <div>
-              <p className="section-label mb-3">Language</p>
+              <p className="section-label mb-3">{locale === 'it' ? 'Lingua' : 'Language'}</p>
               <div className="flex gap-3">
                 {(['it', 'en'] as Locale[]).map((l) => (
                   <Link
                     key={l}
-                    href={`/${l}`}
+                    href={pathForLocale(l)}
                     className={`font-sans text-sm font-medium tracking-widest transition-colors ${
                       locale === l ? 'text-ink' : 'text-secondary hover:text-ink'
                     }`}
