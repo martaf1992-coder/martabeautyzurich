@@ -22,6 +22,7 @@
     "postpartum": "Post-partum",
     "about": "About",
     "contact": "Contact",
+    "admin": "Admin",
     "book": "Book now",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
@@ -95,13 +96,16 @@
     "nameLabel": "Name",
     "rating": "Rating",
     "messageLabel": "Your message",
-    "submit": "Publish review",
-    "submitting": "Publishing...",
-    "success": "Thank you. Your review is now visible on the website.",
+    "captchaLabel": "Human verification",
+    "submit": "Send for approval",
+    "submitting": "Sending...",
+    "success": "Thank you. Your review was sent to Marta for approval.",
     "errors": {
       "load": "Reviews could not be loaded.",
       "submit": "Please add your name, a rating, and a message of at least 10 characters.",
-      "save": "Your review is complete, but it could not be saved right now. Please try again later."
+      "save": "Your review is complete, but it could not be saved right now. Please try again later.",
+      "captcha": "Please complete human verification and try again.",
+      "captchaConfig": "Review verification is temporarily unavailable. Please try again later."
     }
   },
   "programs": {

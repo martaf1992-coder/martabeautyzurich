@@ -4,7 +4,10 @@ export type LocalReview = {
   rating: number
   message: string
   createdAt: string
+  status: ReviewStatus
 }
+
+export type ReviewStatus = 'pending' | 'approved'
 
 export type ReviewInput = {
   name: string

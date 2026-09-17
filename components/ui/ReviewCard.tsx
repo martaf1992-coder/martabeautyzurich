@@ -1,8 +1,18 @@
 'use client'
 
-import { FormEvent, useEffect, useMemo, useState } from 'react'
+import { FormEvent, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
+import Script from 'next/script'
 import { LocalReview } from '@/lib/localReviews'
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (container: HTMLElement, options: Record<string, unknown>) => string
+      reset: (widgetId?: string) => void
+    }
+  }
+}
 
 interface Props {
   compact?: boolean
@@ -30,6 +40,32 @@ export default function ReviewCard({ compact = false, initialReviews = [] }: Pro
   const [state, setState] = useState<FormState>('idle')
   const [error, setError] = useState('')
   const [rating, setRating] = useState(5)
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const turnstileContainer = useRef<HTMLDivElement>(null)
+  const turnstileWidgetId = useRef<string>()
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
+
+  const renderTurnstile = () => {
+    if (!turnstileSiteKey || !window.turnstile || !turnstileContainer.current || turnstileWidgetId.current) return
+    turnstileWidgetId.current = window.turnstile.render(turnstileContainer.current, {
+      sitekey: turnstileSiteKey,
+      action: 'submit-review',
+      theme: 'light',
+      callback: (token: string) => setTurnstileToken(token),
+      'expired-callback': () => setTurnstileToken(''),
+      'error-callback': () => {
+        setTurnstileToken('')
+        setError(t('errors.captcha'))
+      },
+    })
+  }
+
+  const resetTurnstile = () => {
+    setTurnstileToken('')
+    if (window.turnstile && turnstileWidgetId.current) {
+      window.turnstile.reset(turnstileWidgetId.current)
+    }
+  }
 
   useEffect(() => {
     let mounted = true
@@ -76,6 +112,7 @@ export default function ReviewCard({ compact = false, initialReviews = [] }: Pro
       name: String(formData.get('name') ?? '').trim(),
       message: String(formData.get('message') ?? '').trim(),
       rating,
+      turnstileToken,
     }
 
     if (
@@ -90,6 +127,12 @@ export default function ReviewCard({ compact = false, initialReviews = [] }: Pro
       return
     }
 
+    if (!turnstileToken) {
+      setState('error')
+      setError(turnstileSiteKey ? t('errors.captcha') : t('errors.captchaConfig'))
+      return
+    }
+
     setState('loading')
 
     const response = await fetch('/api/reviews', {
@@ -99,33 +142,23 @@ export default function ReviewCard({ compact = false, initialReviews = [] }: Pro
     })
 
     if (!response.ok) {
-      const errorMessage = response.status === 400 ? t('errors.submit') : t('errors.save')
+      const responseData = await response.json().catch(() => null)
+      const errorMessage = responseData?.code === 'INVALID_REVIEW'
+        ? t('errors.submit')
+        : responseData?.code === 'CAPTCHA_CONFIGURATION'
+          ? t('errors.captchaConfig')
+          : responseData?.code === 'CAPTCHA_FAILED'
+            ? t('errors.captcha')
+            : t('errors.save')
       setState('error')
       setError(errorMessage)
+      resetTurnstile()
       return
-    }
-
-    const data = await response.json()
-    const savedReview = data.review as LocalReview | undefined
-
-    if (savedReview) {
-      setReviews((current) => [savedReview, ...current.filter((review) => review.id !== savedReview.id)])
-      setActiveIndex(0)
-    }
-
-    const reviewsResponse = await fetch('/api/reviews', { cache: 'no-store' })
-    const reviewsData = reviewsResponse.ok ? await reviewsResponse.json() : null
-
-    if (
-      Array.isArray(reviewsData?.reviews) &&
-      (!savedReview || reviewsData.reviews.some((review: LocalReview) => review.id === savedReview.id))
-    ) {
-      setReviews(reviewsData.reviews)
-      setActiveIndex(0)
     }
 
     form.reset()
     setRating(5)
+    resetTurnstile()
     setState('success')
   }
 
@@ -195,6 +228,14 @@ export default function ReviewCard({ compact = false, initialReviews = [] }: Pro
           method="post"
           className="border border-border rounded-card bg-white p-6 sm:p-8 flex flex-col gap-5"
         >
+          {turnstileSiteKey && (
+            <Script
+              src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+              strategy="afterInteractive"
+              onLoad={renderTurnstile}
+              onReady={renderTurnstile}
+            />
+          )}
           <div>
             <p className="section-label mb-2">{t('formLabel')}</p>
             <h3 className="font-serif text-2xl text-ink">{t('formHeading')}</h3>
@@ -256,6 +297,15 @@ export default function ReviewCard({ compact = false, initialReviews = [] }: Pro
             />
           </div>
 
+          <div>
+            <p className="font-sans text-xs text-secondary mb-2">{t('captchaLabel')}</p>
+            {turnstileSiteKey ? (
+              <div ref={turnstileContainer} />
+            ) : (
+              <p className="font-sans text-sm text-red-500">{t('errors.captchaConfig')}</p>
+            )}
+          </div>
+
           {state === 'success' && (
             <p className="font-sans text-sm text-secondary">{t('success')}</p>
           )}
@@ -265,7 +315,7 @@ export default function ReviewCard({ compact = false, initialReviews = [] }: Pro
 
           <button
             type="submit"
-            disabled={state === 'loading'}
+            disabled={state === 'loading' || !turnstileToken}
             className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {state === 'loading' ? t('submitting') : t('submit')}

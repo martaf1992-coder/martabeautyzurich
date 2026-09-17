@@ -1,7 +1,7 @@
 import ScrollAnimator from '@/components/ui/ScrollAnimator'
 import ReviewCard from '@/components/ui/ReviewCard'
 import TreatmentCard from '@/components/ui/TreatmentCard'
-import { readReviews } from '@/lib/reviewsStore'
+import { readPublishedReviews } from '@/lib/reviewsStore'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
@@ -46,7 +46,7 @@ export default async function HomePage({ params }: Props) {
   const tAbout = await getTranslations({ locale, namespace: 'aboutTeaser' })
   const tNav = await getTranslations({ locale, namespace: 'nav' })
   const tTreatments = await getTranslations({ locale, namespace: 'treatments' })
-  const reviews = await readReviews()
+  const reviews = await readPublishedReviews()
   const treatmentItems = tTreatments.raw('items') as Record<string, { price: string }>
   const treatmentPrices = Object.values(treatmentItems).map(({ price }) => Number(price))
   const jsonLd = {

@@ -81,6 +81,12 @@ export default function Navbar({ locale }: Props) {
             {/* Right cluster — desktop */}
             <div className="hidden lg:flex items-center gap-4">
               <Link
+                href={`/${locale}/admin/reviews`}
+                className="rounded border border-border px-3 py-2 font-sans text-xs font-medium tracking-wide text-secondary transition-colors hover:border-accent hover:text-accent"
+              >
+                {t('admin')}
+              </Link>
+              <Link
                 href={otherLocalePath}
                 className="font-sans text-xs font-medium tracking-widest text-secondary hover:text-ink transition-colors"
                 aria-label={`Switch to ${otherLocale.toUpperCase()}`}
@@ -127,6 +133,13 @@ export default function Navbar({ locale }: Props) {
           ))}
           <div className="divider" />
           <div className="flex items-center gap-6">
+            <Link
+              href={`/${locale}/admin/reviews`}
+              className="rounded border border-border px-4 py-3 font-sans text-sm font-medium text-secondary transition-colors hover:border-accent hover:text-accent"
+              onClick={() => setMenuOpen(false)}
+            >
+              {t('admin')}
+            </Link>
             <Link
               href={otherLocalePath}
               className="font-sans text-sm font-medium tracking-widest text-secondary hover:text-ink transition-colors"

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1faa8ddc-6ba5-448f-8de6-86d3ca6f33b8",
+    "name": "Giorgia",
+    "rating": 5,
+    "message": "Esperienza davvero eccezionale! Marta è stata bravissima, professionale, attenta e molto delicata. Il trattamento viso è stato super rilassante e la mia pelle subito dopo era visibilmente più luminosa, fresca e curata. Si percepiscono davvero la sua competenza e la passione che mette nel suo lavoro. Mi sono sentita coccolata dall’inizio alla fine e tornerò sicuramente. Consigliatissima! 🌸",
+    "createdAt": "2026-09-16T04:54:03.508Z"
+  },
+  {
+    "id": "e0a65911-d5b8-4385-bf58-7e4d4bdd9b03",
+    "name": "Alessia",
+    "rating": 5,
+    "message": "Marta è semplicemente strepitosa! Mi ha fatto vivere un'esperienza di totale relax dalla quale sono uscita rigenerata. Il trattamento e il massaggio sono stati fantastici. È una vera professionista, molto preparata e dedita a ciò che fa! La consiglio vivamente!!",
+    "createdAt": "2026-07-20T11:43:00.190Z"
+  },
+  {
+    "id": "28400713-189a-47b3-8408-8845fdadc3d9",
+    "name": "Sara",
+    "rating": 5,
+    "message": "The massage I had with Marta was great I felt very relax , she take care of every single details !! I was very happy afterwards ❤️\nThank you Marta",
+    "createdAt": "2026-07-15T07:41:35.134Z"
+  },
+  {
+    "id": "2597ab8e-fd60-477a-8d7a-797ba95b9804",
+    "name": "Marco",
+    "rating": 5,
+    "message": "MARTA BRAVISSIMA PROFESSIONISTA, UNA RAGAZZA SEMPRE PRONTA AD ASCOLTARE CON IL SUO CUORE, HA LE MANI D'ANGELO. UNA VERA ESPERTA NEL MONDO BEAUTY.",
+    "createdAt": "2026-07-14T17:13:02.949Z"
+  },
+  {
+    "id": "ec05233e-ef5e-4739-a232-f5c14d097dec",
+    "name": "Arianna",
+    "rating": 5,
+    "message": "Grande amica e grande professionista. ❤️\nLe sue mani sono davvero imbattibili: ha una tecnica straordinaria e un talento che si percepisce in ogni trattamento. Ma la cosa che fa davvero la differenza è il modo in cui accoglie, la cura e l’attenzione con cui ti fa sentire subito a tuo agio.\n\nIo sono sicuramente di parte, ma quando professionalità, passione e umanità si incontrano il risultato si sente. Super consigliata… provare per credere! ✨",
+    "createdAt": "2026-07-13T18:54:14.292Z"
+  },
+  {
+    "id": "5b18f51a-9b54-48a3-800d-912427e8258a",
+    "name": "Sara",
+    "rating": 5,
+    "message": "The lymphatic drainage massage and facial were incredibly relaxing. Marta made me feel completely comfortable, and I left feeling refreshed. Highly recommend!",
+    "createdAt": "2026-07-13T07:50:35.566Z"
+  },
+  {
+    "id": "a6c1db66-37a9-4fc5-9d84-920f7c54e938",
+    "name": "Viola",
+    "rating": 5,
+    "message": "I would recommend the Sole Reflex, in this hot days is a relief.",
+    "createdAt": "2026-07-12T20:18:39.503Z"
+  },
+  {
+    "id": "seed-3",
+    "name": "Sofia",
+    "rating": 5,
+    "message": "Professional, warm, and precise. The massage was deeply relaxing and the whole experience felt very premium.",
+    "createdAt": "2026-05-24T10:00:00.000Z"
+  },
+  {
+    "id": "seed-2",
+    "name": "Elena",
+    "rating": 5,
+    "message": "Marta understood exactly what my skin needed and explained the routine in a simple, personal way.",
+    "createdAt": "2026-04-18T10:00:00.000Z"
+  },
+  {
+    "id": "seed-1",
+    "name": "Giulia",
+    "rating": 5,
+    "message": "A calm, thoughtful treatment with real attention to detail. I left feeling lighter and completely cared for.",
+    "createdAt": "2026-03-12T10:00:00.000Z"
+  }
+]

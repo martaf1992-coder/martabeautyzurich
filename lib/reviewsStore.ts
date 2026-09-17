@@ -15,17 +15,24 @@ function canUseNetlifyBlobs() {
   )
 }
 
-function normalizeReviews(reviews: unknown): LocalReview[] {
+let fileMutationQueue: Promise<void> = Promise.resolve()
+
+export function normalizeReviews(reviews: unknown): LocalReview[] {
   if (!Array.isArray(reviews)) return []
 
   return reviews
-    .filter((review): review is LocalReview => (
+    .filter((review): review is Omit<LocalReview, 'status'> & { status?: unknown } => (
       typeof review.id === 'string' &&
       typeof review.name === 'string' &&
       typeof review.message === 'string' &&
       typeof review.createdAt === 'string' &&
       typeof review.rating === 'number'
     ))
+    .map((review) => ({
+      ...review,
+      // Reviews created before moderation existed are already public.
+      status: review.status === undefined || review.status === 'approved' ? 'approved' : 'pending',
+    }) satisfies LocalReview)
     .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
 }
 
@@ -42,11 +49,14 @@ async function getReviewsBlobStore() {
 export async function readReviews(): Promise<LocalReview[]> {
   if (canUseNetlifyBlobs()) {
     const store = await getReviewsBlobStore()
-    const reviews = normalizeReviews(
-      await store.get(reviewsBlobKey, { type: 'json' })
-    )
+    const stored = await store.getWithMetadata(reviewsBlobKey, {
+      type: 'json',
+      consistency: 'strong',
+    })
 
-    if (reviews.length) return reviews
+    // An existing empty blob is authoritative. Falling back here would
+    // resurrect reviews after an administrator deleted the final record.
+    if (stored) return normalizeReviews(stored.data)
   }
 
   try {
@@ -60,13 +70,52 @@ export async function readReviews(): Promise<LocalReview[]> {
   }
 }
 
-export async function writeReviews(reviews: LocalReview[]) {
+export async function readPublishedReviews(): Promise<LocalReview[]> {
+  return (await readReviews()).filter((review) => review.status === 'approved')
+}
+
+export async function mutateReviews(
+  update: (reviews: LocalReview[]) => LocalReview[]
+): Promise<LocalReview[]> {
   if (canUseNetlifyBlobs()) {
     const store = await getReviewsBlobStore()
-    await store.setJSON(reviewsBlobKey, normalizeReviews(reviews))
-    return
+
+    for (let attempt = 0; attempt < 6; attempt += 1) {
+      const stored = await store.getWithMetadata(reviewsBlobKey, {
+        type: 'json',
+        consistency: 'strong',
+      })
+      const current = stored ? normalizeReviews(stored.data) : await readFileReviews().catch(() => [])
+      const next = normalizeReviews(update(current))
+      const result = stored
+        ? await store.setJSON(reviewsBlobKey, next, { onlyIfMatch: stored.etag })
+        : await store.setJSON(reviewsBlobKey, next, { onlyIfNew: true })
+
+      if (result.modified) return next
+    }
+
+    throw new Error('Review storage changed too many times; please retry.')
   }
 
-  await fs.mkdir(path.dirname(reviewsFile), { recursive: true })
-  await fs.writeFile(reviewsFile, JSON.stringify(reviews, null, 2), 'utf8')
+  let resolveMutation!: () => void
+  const previousMutation = fileMutationQueue
+  fileMutationQueue = new Promise<void>((resolve) => {
+    resolveMutation = resolve
+  })
+
+  await previousMutation
+  try {
+    const current = await readFileReviews().catch((error: NodeJS.ErrnoException) => {
+      if (error.code === 'ENOENT') return []
+      throw error
+    })
+    const next = normalizeReviews(update(current))
+    await fs.mkdir(path.dirname(reviewsFile), { recursive: true })
+    const temporaryFile = `${reviewsFile}.${process.pid}.${crypto.randomUUID()}.tmp`
+    await fs.writeFile(temporaryFile, JSON.stringify(next, null, 2), 'utf8')
+    await fs.rename(temporaryFile, reviewsFile)
+    return next
+  } finally {
+    resolveMutation()
+  }
 }

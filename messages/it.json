@@ -22,6 +22,7 @@
     "postpartum": "Post-parto",
     "about": "Chi sono",
     "contact": "Contatti",
+    "admin": "Admin",
     "book": "Prenota ora",
     "openMenu": "Apri menu",
     "closeMenu": "Chiudi menu"
@@ -95,13 +96,16 @@
     "nameLabel": "Nome",
     "rating": "Valutazione",
     "messageLabel": "Il tuo messaggio",
-    "submit": "Pubblica recensione",
-    "submitting": "Pubblicazione...",
-    "success": "Grazie. La tua recensione è ora visibile sul sito.",
+    "captchaLabel": "Verifica umana",
+    "submit": "Invia per approvazione",
+    "submitting": "Invio...",
+    "success": "Grazie. La tua recensione è stata inviata a Marta per l'approvazione.",
     "errors": {
       "load": "Non è stato possibile caricare le recensioni.",
       "submit": "Inserisci nome, valutazione e un messaggio di almeno 10 caratteri.",
-      "save": "La recensione è completa, ma al momento non può essere salvata. Riprova più tardi."
+      "save": "La recensione è completa, ma al momento non può essere salvata. Riprova più tardi.",
+      "captcha": "Completa la verifica umana e riprova.",
+      "captchaConfig": "La verifica delle recensioni non è momentaneamente disponibile. Riprova più tardi."
     }
   },
   "programs": {
